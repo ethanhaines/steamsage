@@ -51,22 +51,22 @@ build cmake_object_order_depends_target_steamsage: phony || .
 
 build CMakeFiles/steamsage.dir/src/main.cpp.obj: CXX_COMPILER__steamsage_unscanned_Debug C$:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/src/main.cpp || cmake_object_order_depends_target_steamsage
   DEP_FILE = CMakeFiles\steamsage.dir\src\main.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/. -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/include -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/resources
+  FLAGS = -L"C:/Program Files/PostgreSQL/17/lib" -lpq -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/. -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/include -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/resources -I"C:/Program Files/PostgreSQL/17/include"
   OBJECT_DIR = CMakeFiles\steamsage.dir
   OBJECT_FILE_DIR = CMakeFiles\steamsage.dir\src
 
 build CMakeFiles/steamsage.dir/src/AdjacencyMatrix.cpp.obj: CXX_COMPILER__steamsage_unscanned_Debug C$:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/src/AdjacencyMatrix.cpp || cmake_object_order_depends_target_steamsage
   DEP_FILE = CMakeFiles\steamsage.dir\src\AdjacencyMatrix.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/. -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/include -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/resources
+  FLAGS = -L"C:/Program Files/PostgreSQL/17/lib" -lpq -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/. -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/include -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/resources -I"C:/Program Files/PostgreSQL/17/include"
   OBJECT_DIR = CMakeFiles\steamsage.dir
   OBJECT_FILE_DIR = CMakeFiles\steamsage.dir\src
 
 build CMakeFiles/steamsage.dir/src/Parser.cpp.obj: CXX_COMPILER__steamsage_unscanned_Debug C$:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/src/Parser.cpp || cmake_object_order_depends_target_steamsage
   DEP_FILE = CMakeFiles\steamsage.dir\src\Parser.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/. -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/include -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/resources
+  FLAGS = -L"C:/Program Files/PostgreSQL/17/lib" -lpq -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/. -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/include -IC:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/resources -I"C:/Program Files/PostgreSQL/17/include"
   OBJECT_DIR = CMakeFiles\steamsage.dir
   OBJECT_FILE_DIR = CMakeFiles\steamsage.dir\src
 
@@ -79,8 +79,8 @@ build CMakeFiles/steamsage.dir/src/Parser.cpp.obj: CXX_COMPILER__steamsage_unsca
 # Link the executable steamsage.exe
 
 build steamsage.exe: CXX_EXECUTABLE_LINKER__steamsage_Debug CMakeFiles/steamsage.dir/src/main.cpp.obj CMakeFiles/steamsage.dir/src/AdjacencyMatrix.cpp.obj CMakeFiles/steamsage.dir/src/Parser.cpp.obj
-  FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  FLAGS = -L"C:/Program Files/PostgreSQL/17/lib" -lpq -g
+  LINK_LIBRARIES = -lpq  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\steamsage.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
