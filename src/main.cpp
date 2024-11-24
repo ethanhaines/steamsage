@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include <libpq-fe.h>
+#include <C:\Program Files\PostgreSQL\17\include\libpq-fe.h>
 int main() {
     std::cout << "Enter password: " << std::endl;
     std::string pw;
