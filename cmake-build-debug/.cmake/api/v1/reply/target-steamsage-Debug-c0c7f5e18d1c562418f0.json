@@ -14,7 +14,6 @@
 		"commands" : 
 		[
 			"add_executable",
-			"target_link_libraries",
 			"include_directories"
 		],
 		"files" : 
@@ -35,29 +34,23 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 19,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
 				"line" : 6,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 1,
 				"file" : 0,
 				"line" : 7,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 1,
 				"file" : 0,
 				"line" : 8,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 1,
 				"file" : 0,
 				"line" : 17,
 				"parent" : 0
@@ -76,19 +69,19 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 3,
+					"backtrace" : 2,
 					"path" : "C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/."
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 3,
 					"path" : "C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 4,
 					"path" : "C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/resources"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "C:/Program Files/PostgreSQL/17/include"
 				}
 			],
@@ -113,11 +106,6 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "-lpq",
-				"role" : "libraries"
 			},
 			{
 				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
