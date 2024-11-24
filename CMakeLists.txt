@@ -16,5 +16,3 @@ add_executable(steamsage
 
 include_directories("C:/Program Files/PostgreSQL/17/include")
 link_directories("C:/Program Files/PostgreSQL/17/lib")
-target_link_libraries(steamsage pq)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -L\"C:/Program Files/PostgreSQL/17/lib\" -lpq")

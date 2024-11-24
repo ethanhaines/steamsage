@@ -1,4 +1,19 @@
 "C:\Program Files\JetBrains\CLion 2024.2.0.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage -B C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug
--- Configuring done (0.2s)
--- Generating done (0.0s)
--- Build files have been written to: C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+CMake Error at CMakeLists.txt:24 (find_package):
+  By not providing "Findlibpqxx.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "libpqxx", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "libpqxx" with any
+  of the following names:
+
+    libpqxxConfig.cmake
+    libpqxx-config.cmake
+
+  Add the installation prefix of "libpqxx" to CMAKE_PREFIX_PATH or set
+  "libpqxx_DIR" to a directory containing one of the above files.  If
+  "libpqxx" provides a separate development package or SDK, be sure it has
+  been installed.
+
+
+-- Configuring incomplete, errors occurred!

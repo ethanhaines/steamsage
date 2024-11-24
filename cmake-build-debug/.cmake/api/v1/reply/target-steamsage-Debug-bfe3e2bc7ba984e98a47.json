@@ -70,7 +70,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -L\"C:/Program Files/PostgreSQL/17/lib\" -lpq -g -fdiagnostics-color=always"
+					"fragment" : "-g -fdiagnostics-color=always"
 				}
 			],
 			"includes" : 
@@ -107,7 +107,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-L\"C:/Program Files/PostgreSQL/17/lib\" -lpq -g",
+				"fragment" : "-g",
 				"role" : "flags"
 			},
 			{
