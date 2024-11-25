@@ -2,30 +2,6 @@
 	"entries" : 
 	[
 		{
-			"name" : "BUILD_DOC",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Build documentation"
-				}
-			],
-			"type" : "BOOL",
-			"value" : "OFF"
-		},
-		{
-			"name" : "BUILD_TEST",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Build all test cases"
-				}
-			],
-			"type" : "BOOL",
-			"value" : "ON"
-		},
-		{
 			"name" : "CMAKE_ADDR2LINE",
 			"properties" : 
 			[
@@ -39,7 +15,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/mingw/mingw64/bin/addr2line.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2024.3/bin/mingw/bin/addr2line.exe"
 		},
 		{
 			"name" : "CMAKE_AR",
@@ -55,7 +31,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/mingw/mingw64/bin/ar.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2024.3/bin/mingw/bin/ar.exe"
 		},
 		{
 			"name" : "CMAKE_BUILD_TYPE",
@@ -139,7 +115,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files/Cmake/bin/cmake.exe"
+			"value" : "C:/Program Files/CMake/bin/cmake.exe"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -151,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files/Cmake/bin/cpack.exe"
+			"value" : "C:/Program Files/CMake/bin/cpack.exe"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -163,7 +139,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files/Cmake/bin/ctest.exe"
+			"value" : "C:/Program Files/CMake/bin/ctest.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER",
@@ -178,8 +154,8 @@
 					"value" : "CXX compiler"
 				}
 			],
-			"type" : "STRING",
-			"value" : "C:/mingw/mingw64/bin/c++.exe"
+			"type" : "FILEPATH",
+			"value" : "C:/Program Files/JetBrains/CLion 2024.3/bin/mingw/bin/g++.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_AR",
@@ -195,7 +171,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/mingw/mingw64/bin/gcc-ar.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2024.3/bin/mingw/bin/gcc-ar.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_RANLIB",
@@ -211,7 +187,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/mingw/mingw64/bin/gcc-ranlib.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2024.3/bin/mingw/bin/gcc-ranlib.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS",
@@ -310,150 +286,6 @@
 			"value" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32"
 		},
 		{
-			"name" : "CMAKE_C_COMPILER",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "C compiler"
-				}
-			],
-			"type" : "FILEPATH",
-			"value" : "C:/mingw/mingw64/bin/gcc.exe"
-		},
-		{
-			"name" : "CMAKE_C_COMPILER_AR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
-				}
-			],
-			"type" : "FILEPATH",
-			"value" : "C:/mingw/mingw64/bin/gcc-ar.exe"
-		},
-		{
-			"name" : "CMAKE_C_COMPILER_RANLIB",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
-				}
-			],
-			"type" : "FILEPATH",
-			"value" : "C:/mingw/mingw64/bin/gcc-ranlib.exe"
-		},
-		{
-			"name" : "CMAKE_C_FLAGS",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Flags used by the C compiler during all build types."
-				}
-			],
-			"type" : "STRING",
-			"value" : ""
-		},
-		{
-			"name" : "CMAKE_C_FLAGS_DEBUG",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Flags used by the C compiler during DEBUG builds."
-				}
-			],
-			"type" : "STRING",
-			"value" : "-g"
-		},
-		{
-			"name" : "CMAKE_C_FLAGS_MINSIZEREL",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Flags used by the C compiler during MINSIZEREL builds."
-				}
-			],
-			"type" : "STRING",
-			"value" : "-Os -DNDEBUG"
-		},
-		{
-			"name" : "CMAKE_C_FLAGS_RELEASE",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Flags used by the C compiler during RELEASE builds."
-				}
-			],
-			"type" : "STRING",
-			"value" : "-O3 -DNDEBUG"
-		},
-		{
-			"name" : "CMAKE_C_FLAGS_RELWITHDEBINFO",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Flags used by the C compiler during RELWITHDEBINFO builds."
-				}
-			],
-			"type" : "STRING",
-			"value" : "-O2 -g -DNDEBUG"
-		},
-		{
-			"name" : "CMAKE_C_STANDARD_LIBRARIES",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Libraries linked by default with all C applications."
-				}
-			],
-			"type" : "STRING",
-			"value" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32"
-		},
-		{
 			"name" : "CMAKE_DLLTOOL",
 			"properties" : 
 			[
@@ -467,7 +299,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/mingw/mingw64/bin/dlltool.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2024.3/bin/mingw/bin/dlltool.exe"
 		},
 		{
 			"name" : "CMAKE_EDIT_COMMAND",
@@ -479,7 +311,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files/Cmake/bin/cmake-gui.exe"
+			"value" : "C:/Program Files/CMake/bin/cmake-gui.exe"
 		},
 		{
 			"name" : "CMAKE_EXECUTABLE_FORMAT",
@@ -574,22 +406,6 @@
 			"value" : ""
 		},
 		{
-			"name" : "CMAKE_EXPORT_COMPILE_COMMANDS",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Enable/Disable output of compile commands during generation."
-				}
-			],
-			"type" : "BOOL",
-			"value" : ""
-		},
-		{
 			"name" : "CMAKE_EXTRA_GENERATOR",
 			"properties" : 
 			[
@@ -623,7 +439,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "Ninja"
+			"value" : "MinGW Makefiles"
 		},
 		{
 			"name" : "CMAKE_GENERATOR_INSTANCE",
@@ -686,198 +502,6 @@
 			"value" : "C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage"
 		},
 		{
-			"name" : "CMAKE_INSTALL_BINDIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "User executables (bin)"
-				}
-			],
-			"type" : "PATH",
-			"value" : "bin"
-		},
-		{
-			"name" : "CMAKE_INSTALL_DATADIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Read-only architecture-independent data (DATAROOTDIR)"
-				}
-			],
-			"type" : "PATH",
-			"value" : ""
-		},
-		{
-			"name" : "CMAKE_INSTALL_DATAROOTDIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Read-only architecture-independent data root (share)"
-				}
-			],
-			"type" : "PATH",
-			"value" : "share"
-		},
-		{
-			"name" : "CMAKE_INSTALL_DOCDIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Documentation root (DATAROOTDIR/doc/PROJECT_NAME)"
-				}
-			],
-			"type" : "PATH",
-			"value" : ""
-		},
-		{
-			"name" : "CMAKE_INSTALL_INCLUDEDIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "C header files (include)"
-				}
-			],
-			"type" : "PATH",
-			"value" : "include"
-		},
-		{
-			"name" : "CMAKE_INSTALL_INFODIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Info documentation (DATAROOTDIR/info)"
-				}
-			],
-			"type" : "PATH",
-			"value" : ""
-		},
-		{
-			"name" : "CMAKE_INSTALL_LIBDIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Object code libraries (lib)"
-				}
-			],
-			"type" : "PATH",
-			"value" : "lib"
-		},
-		{
-			"name" : "CMAKE_INSTALL_LIBEXECDIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Program executables (libexec)"
-				}
-			],
-			"type" : "PATH",
-			"value" : "libexec"
-		},
-		{
-			"name" : "CMAKE_INSTALL_LOCALEDIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Locale-dependent data (DATAROOTDIR/locale)"
-				}
-			],
-			"type" : "PATH",
-			"value" : ""
-		},
-		{
-			"name" : "CMAKE_INSTALL_LOCALSTATEDIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Modifiable single-machine data (var)"
-				}
-			],
-			"type" : "PATH",
-			"value" : "var"
-		},
-		{
-			"name" : "CMAKE_INSTALL_MANDIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Man documentation (DATAROOTDIR/man)"
-				}
-			],
-			"type" : "PATH",
-			"value" : ""
-		},
-		{
-			"name" : "CMAKE_INSTALL_OLDINCLUDEDIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "C header files for non-gcc (/usr/include)"
-				}
-			],
-			"type" : "PATH",
-			"value" : "/usr/include"
-		},
-		{
 			"name" : "CMAKE_INSTALL_PREFIX",
 			"properties" : 
 			[
@@ -888,70 +512,6 @@
 			],
 			"type" : "PATH",
 			"value" : "C:/Program Files (x86)/steamsage"
-		},
-		{
-			"name" : "CMAKE_INSTALL_RUNSTATEDIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Run-time variable data (LOCALSTATEDIR/run)"
-				}
-			],
-			"type" : "PATH",
-			"value" : ""
-		},
-		{
-			"name" : "CMAKE_INSTALL_SBINDIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "System admin executables (sbin)"
-				}
-			],
-			"type" : "PATH",
-			"value" : "sbin"
-		},
-		{
-			"name" : "CMAKE_INSTALL_SHAREDSTATEDIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Modifiable architecture-independent data (com)"
-				}
-			],
-			"type" : "PATH",
-			"value" : "com"
-		},
-		{
-			"name" : "CMAKE_INSTALL_SYSCONFDIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Read-only single-machine data (etc)"
-				}
-			],
-			"type" : "PATH",
-			"value" : "etc"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -967,19 +527,23 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/mingw/mingw64/bin/ld.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2024.3/bin/mingw/bin/ld.exe"
 		},
 		{
 			"name" : "CMAKE_MAKE_PROGRAM",
 			"properties" : 
 			[
 				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
 					"name" : "HELPSTRING",
 					"value" : "make program"
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/JetBrains/CLion 2024.2.0.1/bin/ninja/win/x64/ninja.exe"
+			"value" : "C:/PROGRA~1/JETBRA~1/CLION2~1.3/bin/mingw/bin/mingw32-make.exe"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -1075,7 +639,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/mingw/mingw64/bin/nm.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2024.3/bin/mingw/bin/nm.exe"
 		},
 		{
 			"name" : "CMAKE_NUMBER_OF_MAKEFILES",
@@ -1103,7 +667,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/mingw/mingw64/bin/objcopy.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2024.3/bin/mingw/bin/objcopy.exe"
 		},
 		{
 			"name" : "CMAKE_OBJDUMP",
@@ -1119,7 +683,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/mingw/mingw64/bin/objdump.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2024.3/bin/mingw/bin/objdump.exe"
 		},
 		{
 			"name" : "CMAKE_PLATFORM_INFO_INITIALIZED",
@@ -1170,66 +734,6 @@
 			"value" : "steamsage"
 		},
 		{
-			"name" : "CMAKE_PROJECT_VERSION",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "7.9.3"
-		},
-		{
-			"name" : "CMAKE_PROJECT_VERSION_MAJOR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "7"
-		},
-		{
-			"name" : "CMAKE_PROJECT_VERSION_MINOR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "9"
-		},
-		{
-			"name" : "CMAKE_PROJECT_VERSION_PATCH",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "3"
-		},
-		{
-			"name" : "CMAKE_PROJECT_VERSION_TWEAK",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : ""
-		},
-		{
 			"name" : "CMAKE_RANLIB",
 			"properties" : 
 			[
@@ -1243,7 +747,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/mingw/mingw64/bin/ranlib.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2024.3/bin/mingw/bin/ranlib.exe"
 		},
 		{
 			"name" : "CMAKE_RC_COMPILER",
@@ -1259,7 +763,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/mingw/mingw64/bin/windres.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2024.3/bin/mingw/bin/windres.exe"
 		},
 		{
 			"name" : "CMAKE_RC_COMPILER_WORKS",
@@ -1367,7 +871,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/mingw/mingw64/bin/readelf.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2024.3/bin/mingw/bin/readelf.exe"
 		},
 		{
 			"name" : "CMAKE_ROOT",
@@ -1379,7 +883,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files/Cmake/share/cmake-3.29"
+			"value" : "C:/Program Files/CMake/share/cmake-3.29"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1587,7 +1091,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/mingw/mingw64/bin/strip.exe"
+			"value" : "C:/Program Files/JetBrains/CLion 2024.3/bin/mingw/bin/strip.exe"
 		},
 		{
 			"name" : "CMAKE_TAPI",
@@ -1622,114 +1126,6 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_PostgreSQL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Details about finding PostgreSQL"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "[C:/Program Files/PostgreSQL/17/lib/libpq.lib][C:/Program Files/PostgreSQL/17/include][c ][v17.2()]"
-		},
-		{
-			"name" : "PKG_CONFIG_ARGN",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Arguments to supply to pkg-config"
-				}
-			],
-			"type" : "STRING",
-			"value" : ""
-		},
-		{
-			"name" : "PKG_CONFIG_EXECUTABLE",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "pkg-config executable"
-				}
-			],
-			"type" : "FILEPATH",
-			"value" : "PKG_CONFIG_EXECUTABLE-NOTFOUND"
-		},
-		{
-			"name" : "PostgreSQL_INCLUDE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "The Set the PostgreSQL_INCLUDE_DIR cmake cache entry to the top-level directory containing the PostgreSQL include directories. E.g /usr/local/include/PostgreSQL/8.4 or C:/Program Files/PostgreSQL/8.4/include"
-				}
-			],
-			"type" : "PATH",
-			"value" : "PostgreSQL_INCLUDE_DIR-NOTFOUND"
-		},
-		{
-			"name" : "PostgreSQL_LIBRARY_DEBUG",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "The Set the PostgreSQL_LIBRARY_DIR cmake cache entry to the top-level directory containing the PostgreSQL libraries."
-				}
-			],
-			"type" : "FILEPATH",
-			"value" : "PostgreSQL_LIBRARY_DEBUG-NOTFOUND"
-		},
-		{
-			"name" : "PostgreSQL_LIBRARY_RELEASE",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "The Set the PostgreSQL_LIBRARY_DIR cmake cache entry to the top-level directory containing the PostgreSQL libraries."
-				}
-			],
-			"type" : "FILEPATH",
-			"value" : "PostgreSQL_LIBRARY_RELEASE-NOTFOUND"
-		},
-		{
-			"name" : "PostgreSQL_TYPE_INCLUDE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "The Set the PostgreSQL_INCLUDE_DIR cmake cache entry to the top-level directory containing the PostgreSQL include directories. E.g /usr/local/include/PostgreSQL/8.4 or C:/Program Files/PostgreSQL/8.4/include"
-				}
-			],
-			"type" : "PATH",
-			"value" : "PostgreSQL_TYPE_INCLUDE_DIR-NOTFOUND"
-		},
-		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
 			"properties" : 
 			[
@@ -1740,66 +1136,6 @@
 			],
 			"type" : "INTERNAL",
 			"value" : "TRUE"
-		},
-		{
-			"name" : "_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "CMAKE_INSTALL_PREFIX during last run"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "C:/Program Files (x86)/steamsage"
-		},
-		{
-			"name" : "libpqxx_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug/build-pqxx"
-		},
-		{
-			"name" : "libpqxx_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for libpqxx."
-				}
-			],
-			"type" : "PATH",
-			"value" : "libpqxx_DIR-NOTFOUND"
-		},
-		{
-			"name" : "libpqxx_IS_TOP_LEVEL",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "OFF"
-		},
-		{
-			"name" : "libpqxx_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/libpqxx"
 		},
 		{
 			"name" : "steamsage_BINARY_DIR",

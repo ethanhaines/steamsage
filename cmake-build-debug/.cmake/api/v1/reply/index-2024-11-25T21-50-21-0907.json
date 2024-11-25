@@ -4,14 +4,14 @@
 		"generator" : 
 		{
 			"multiConfig" : false,
-			"name" : "Ninja"
+			"name" : "MinGW Makefiles"
 		},
 		"paths" : 
 		{
-			"cmake" : "C:/Program Files/Cmake/bin/cmake.exe",
-			"cpack" : "C:/Program Files/Cmake/bin/cpack.exe",
-			"ctest" : "C:/Program Files/Cmake/bin/ctest.exe",
-			"root" : "C:/Program Files/Cmake/share/cmake-3.29"
+			"cmake" : "C:/Program Files/CMake/bin/cmake.exe",
+			"cpack" : "C:/Program Files/CMake/bin/cpack.exe",
+			"ctest" : "C:/Program Files/CMake/bin/ctest.exe",
+			"root" : "C:/Program Files/CMake/share/cmake-3.29"
 		},
 		"version" : 
 		{
@@ -35,7 +35,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cache-v2-bba5dcbbb9b24245bfd4.json",
+			"jsonFile" : "cache-v2-c20f45c24187ad29ef47.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -44,7 +44,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cmakeFiles-v1-140ae76f0898aae49952.json",
+			"jsonFile" : "cmakeFiles-v1-4a5fe1cec89a285a2c5f.json",
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -53,7 +53,7 @@
 			}
 		},
 		{
-			"jsonFile" : "toolchains-v1-cb26ba6b94624ec4ef45.json",
+			"jsonFile" : "toolchains-v1-cda9e1059584b9e11c8e.json",
 			"kind" : "toolchains",
 			"version" : 
 			{
@@ -66,7 +66,7 @@
 	{
 		"cache-v2" : 
 		{
-			"jsonFile" : "cache-v2-bba5dcbbb9b24245bfd4.json",
+			"jsonFile" : "cache-v2-c20f45c24187ad29ef47.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -76,7 +76,7 @@
 		},
 		"cmakeFiles-v1" : 
 		{
-			"jsonFile" : "cmakeFiles-v1-140ae76f0898aae49952.json",
+			"jsonFile" : "cmakeFiles-v1-4a5fe1cec89a285a2c5f.json",
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -96,7 +96,7 @@
 		},
 		"toolchains-v1" : 
 		{
-			"jsonFile" : "toolchains-v1-cb26ba6b94624ec4ef45.json",
+			"jsonFile" : "toolchains-v1-cda9e1059584b9e11c8e.json",
 			"kind" : "toolchains",
 			"version" : 
 			{
