@@ -3,8 +3,16 @@
 //
 
 #include <iostream>
-#include <C:\Program Files\PostgreSQL\17\include\libpq-fe.h>
+#include <../include/Parser.h>
+#include <unordered_map>
+#include <string>
+#include <vector>
 int main() {
+
+    Parser parser("../resources/games.csv");
+
+    std::unordered_map<std::string, std::vector<std::string>> games2 = parser.parse();
+    std::cout << games2.size() << std::endl;
 
     return 0;
 }

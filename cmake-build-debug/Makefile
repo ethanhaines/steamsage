@@ -128,29 +128,29 @@ steamsage/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\steamsage.dir\build.make CMakeFiles/steamsage.dir/build
 .PHONY : steamsage/fast
 
-src/AdjacencyMatrix.obj: src/AdjacencyMatrix.cpp.obj
-.PHONY : src/AdjacencyMatrix.obj
+src/AdjacencyList.obj: src/AdjacencyList.cpp.obj
+.PHONY : src/AdjacencyList.obj
 
 # target to build an object file
-src/AdjacencyMatrix.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\steamsage.dir\build.make CMakeFiles/steamsage.dir/src/AdjacencyMatrix.cpp.obj
-.PHONY : src/AdjacencyMatrix.cpp.obj
+src/AdjacencyList.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\steamsage.dir\build.make CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.obj
+.PHONY : src/AdjacencyList.cpp.obj
 
-src/AdjacencyMatrix.i: src/AdjacencyMatrix.cpp.i
-.PHONY : src/AdjacencyMatrix.i
+src/AdjacencyList.i: src/AdjacencyList.cpp.i
+.PHONY : src/AdjacencyList.i
 
 # target to preprocess a source file
-src/AdjacencyMatrix.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\steamsage.dir\build.make CMakeFiles/steamsage.dir/src/AdjacencyMatrix.cpp.i
-.PHONY : src/AdjacencyMatrix.cpp.i
+src/AdjacencyList.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\steamsage.dir\build.make CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.i
+.PHONY : src/AdjacencyList.cpp.i
 
-src/AdjacencyMatrix.s: src/AdjacencyMatrix.cpp.s
-.PHONY : src/AdjacencyMatrix.s
+src/AdjacencyList.s: src/AdjacencyList.cpp.s
+.PHONY : src/AdjacencyList.s
 
 # target to generate assembly for a file
-src/AdjacencyMatrix.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\steamsage.dir\build.make CMakeFiles/steamsage.dir/src/AdjacencyMatrix.cpp.s
-.PHONY : src/AdjacencyMatrix.cpp.s
+src/AdjacencyList.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\steamsage.dir\build.make CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.s
+.PHONY : src/AdjacencyList.cpp.s
 
 src/Parser.obj: src/Parser.cpp.obj
 .PHONY : src/Parser.obj
@@ -209,9 +209,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... steamsage
-	@echo ... src/AdjacencyMatrix.obj
-	@echo ... src/AdjacencyMatrix.i
-	@echo ... src/AdjacencyMatrix.s
+	@echo ... src/AdjacencyList.obj
+	@echo ... src/AdjacencyList.i
+	@echo ... src/AdjacencyList.s
 	@echo ... src/Parser.obj
 	@echo ... src/Parser.i
 	@echo ... src/Parser.s
