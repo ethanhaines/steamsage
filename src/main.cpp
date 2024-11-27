@@ -18,7 +18,7 @@ int main() {
     std::cout << games2.size() << std::endl;
     int count = 0;
     int indie_count = 0;
-    for (auto it = games2.begin(); count <= 60741; it++) {
+    for (auto it = games2.begin(); count < games2.size(); it++) {
         count++;
         if (std::find(it->second.begin(), it->second.end(), "Bowling") != it->second.end()) {
             indie_count++;
