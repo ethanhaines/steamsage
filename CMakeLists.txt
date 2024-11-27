@@ -9,6 +9,5 @@ add_executable(steamsage
         src/Parser.cpp
         include/AdjacencyList.h
         include/Parser.h
-        include/BFS.h
         src/BFS.cpp)
 
