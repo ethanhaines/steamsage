@@ -9,13 +9,14 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+
 int main() {
 
     Parser parser("../resources/games.csv");
     AdjList graph;
 
     std::unordered_map<std::string, std::vector<std::string>> games2 = parser.parse();
-    std::cout << games2.size() << std::endl;
+    std::cout << games2.size() << std::endl; // (matching tag count * 2) / (total number of the tags between the two games)
     int count = 0;
     int indie_count = 0;
     for (auto it = games2.begin(); count < games2.size(); it++) {
