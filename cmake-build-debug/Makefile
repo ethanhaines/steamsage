@@ -152,6 +152,30 @@ src/AdjacencyList.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\steamsage.dir\build.make CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.s
 .PHONY : src/AdjacencyList.cpp.s
 
+src/BFS.obj: src/BFS.cpp.obj
+.PHONY : src/BFS.obj
+
+# target to build an object file
+src/BFS.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\steamsage.dir\build.make CMakeFiles/steamsage.dir/src/BFS.cpp.obj
+.PHONY : src/BFS.cpp.obj
+
+src/BFS.i: src/BFS.cpp.i
+.PHONY : src/BFS.i
+
+# target to preprocess a source file
+src/BFS.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\steamsage.dir\build.make CMakeFiles/steamsage.dir/src/BFS.cpp.i
+.PHONY : src/BFS.cpp.i
+
+src/BFS.s: src/BFS.cpp.s
+.PHONY : src/BFS.s
+
+# target to generate assembly for a file
+src/BFS.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\steamsage.dir\build.make CMakeFiles/steamsage.dir/src/BFS.cpp.s
+.PHONY : src/BFS.cpp.s
+
 src/Parser.obj: src/Parser.cpp.obj
 .PHONY : src/Parser.obj
 
@@ -212,6 +236,9 @@ help:
 	@echo ... src/AdjacencyList.obj
 	@echo ... src/AdjacencyList.i
 	@echo ... src/AdjacencyList.s
+	@echo ... src/BFS.obj
+	@echo ... src/BFS.i
+	@echo ... src/BFS.s
 	@echo ... src/Parser.obj
 	@echo ... src/Parser.i
 	@echo ... src/Parser.s
