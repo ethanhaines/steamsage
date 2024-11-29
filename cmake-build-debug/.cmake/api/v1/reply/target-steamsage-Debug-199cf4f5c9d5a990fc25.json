@@ -61,7 +61,7 @@
 				0,
 				1,
 				2,
-				6
+				5
 			]
 		}
 	],
@@ -101,7 +101,7 @@
 				0,
 				1,
 				2,
-				6
+				5
 			]
 		},
 		{
@@ -109,8 +109,7 @@
 			"sourceIndexes" : 
 			[
 				3,
-				4,
-				5
+				4
 			]
 		}
 	],
@@ -142,11 +141,6 @@
 		{
 			"backtrace" : 1,
 			"path" : "include/Parser.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "include/BFS.h",
 			"sourceGroupIndex" : 1
 		},
 		{
