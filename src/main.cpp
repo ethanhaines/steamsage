@@ -17,6 +17,7 @@ int main() {
 
     std::unordered_map<std::string, std::vector<std::string>> games2 = parser.parse(); // this contains every game in our csv
     std::cout << games2.size() << std::endl; // (matching tag count * 2) / (total number of the tags between the two games)
+    std::unordered_map<std::string, int> tag_count;
     int count = 0;
     int indie_count = 0;
     for (auto it = games2.begin(); count < games2.size(); it++) {
@@ -26,6 +27,13 @@ int main() {
             graph.insert("Galactic Bowling", it->first, games2["Galactic Bowling"], games2[it->first]);
         }
     }
+    /*
+        if keys with matching tags size exceeds 100
+            take the next tag of the source and add one to the requirements
+
+
+     */
+
     graph.print();
     std::cout << indie_count << std::endl;
     return 0;
