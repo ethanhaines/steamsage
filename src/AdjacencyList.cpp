@@ -73,6 +73,43 @@ void AdjList::print_tag_frequencies() {
     }
 }
 
+void AdjList::BellmanFord(const std::string& source) { // using slides 29-41 from module 11's discussion google doc
+    // initialize distance and predecessor maps
+    std::unordered_map<std::string, float> distance;
+    std::unordered_map<std::string, std::string> predecessor;
+
+    // set all distance to infinity
+    for(const auto& pair : this->adjlist){
+        // using https://en.cppreference.com/w/cpp/types/numeric_limits/infinity
+        distance[pair.first] = std::numeric_limits<float>::infinity();
+    }
+    distance[source] = 0;
+
+    // relax each edge V-1 times
+    for(auto i = 0; i < this->adjlist.size() - 1; i++){
+        // using https://en.cppreference.com/w/cpp/language/structured_binding
+        for(const auto& [from, neighbors] : this->adjlist){
+            for(const auto& [to, weight] : neighbors){
+                if(distance[from] + weight < distance[to]){
+                    distance[to] = distance[from] + weight;
+                    predecessor[to] = from;
+                }
+            }
+        }
+    }
+
+    // attempt to relax all edges one more time and if a distance changes then there is a negative weight cycle
+    for(const auto& [from, neighbors] : this->adjlist){
+        for(const auto& [to, weight] : neighbors){
+            if(distance[from] + weight < distance[to]){
+                std::cout << "Error: Graph contains a negative-weight cycle" << std::endl;
+                return;
+            }
+        }
+    }
+
+}
+
 // TODO: Implement sorting algorithms
 
 

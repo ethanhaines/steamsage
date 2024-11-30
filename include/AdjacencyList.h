@@ -10,11 +10,13 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <utility>
+#include <limits> // for infinity representation
+
 class AdjList { // I got most of the logic from my pagerank project
 public:
     void insert(const std::string& from, const std::string& to, const std::vector<std::string>& from_tags, const std::vector<std::string>& to_tags);
     void print();
-    void BellmanFord();
+    void BellmanFord(const std::string& source);
     void Dijsktras();
     void print_tag_frequencies(); //debug func
     std::unordered_map<std::string, int> get_tag_count();
