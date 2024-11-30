@@ -21,6 +21,7 @@ int main() {
     // typically, if a game has 1 tag, it usually has atleast 2
     // if a game has small amount of tags, select the least popular one to do the connections, if that least popular one is still 'popular', then require the next least popular tag also
     // TODO: fix frequency map (it adds the from tags as a repeat)
+    // can maybe use a set and check if its in the set before inserting into map -Andrew
     // TODO: set up the program to insert a node, then from that node insert similar games to itself, limit the games by like the top x most weighted nodes
     int count = 0;
     int indie_count = 0;
