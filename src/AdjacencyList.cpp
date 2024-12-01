@@ -34,25 +34,12 @@ void AdjList::print() {
 }
 
 void AdjList::calculate_weights(const std::string& from, const std::string& to, const std::vector<std::string>& from_tags, const std::vector<std::string>& to_tags) {
-    std::vector vec1 = from_tags;
-    std::vector vec2 = to_tags;
+    std::vector<std::string> vec1 = from_tags;
+    std::vector<std::string> vec2 = to_tags;
     std::sort(vec1.begin(), vec1.end());
     std::sort(vec2.begin(), vec2.end());
     int count = 0;
-    for (auto& tag : vec1){
-        std::cout <<"Adding tag: " << tag << " from: " << from << std::endl;
-        tag_count[tag]++;
-        if (std::find(vec2.begin(), vec2.end(), tag) != vec2.end()){
-            count++;
-        }
-    }
-    for (auto& tag : vec2) {
-        std::cout <<"Adding tag: " << tag << " from: " << to << std::endl;
-        if (std::find(vec1.begin(), vec1.end(), tag) == vec1.end()) {
-            tag_count[tag]++;
-        }
-    }
-    float weight = (float)(count * 2) / (float)(vec1.size() + vec2.size());
+    float weight = 1.0f - ((float)(count * 2) / (float)(vec1.size() + vec2.size()));
     adjlist[from].back().second = weight;
     for (auto& edge : adjlist[to]) { // find the corresponding edge for 'to' to update its weight
         if (edge.first == from) {
@@ -66,12 +53,6 @@ std::unordered_map<std::string, int> AdjList::get_tag_count() {
     return tag_count;
 }
 
-void AdjList::print_tag_frequencies() {
-    std::cout << "Tag Frequencies:" << std::endl;
-    for (const auto& entry : tag_count) {
-        std::cout << "Tag: " << entry.first << " Frequency: " << entry.second << std::endl;
-    }
-}
 
 // TODO: Implement sorting algorithms
 

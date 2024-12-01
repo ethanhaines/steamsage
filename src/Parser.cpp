@@ -40,7 +40,27 @@ std::unordered_map<std::string, std::vector<std::string>> Parser::parse() {
         }
         data[name] = tags_vector;
     }
+    game_data = data;
     return data;
+}
+
+std::unordered_map<std::string, int> Parser::parse_tag_count() {
+    std::unordered_map<std::string, int> tag_count;
+
+    for (const auto& [game_name, tags_vector] : game_data) {
+        for (const auto& tag : tags_vector) {
+            tag_count[tag]++;
+        }
+    }
+    this->tag_count = tag_count;
+    return tag_count;
+}
+
+void Parser::print_tag_freq() {
+    std::cout << "Tag Frequencies:" << std::endl;
+    for (const auto& entry : tag_count) {
+        std::cout << "Tag: " << entry.first << " Frequency: " << entry.second << std::endl;
+    }
 }
 
 

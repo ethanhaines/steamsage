@@ -22,15 +22,9 @@ int main() {
     // if a game has small amount of tags, select the least popular one to do the connections, if that least popular one is still 'popular', then require the next least popular tag also
     // TODO: fix frequency map (it adds the from tags as a repeat)
     // TODO: set up the program to insert a node, then from that node insert similar games to itself, limit the games by like the top x most weighted nodes
-    int count = 0;
-    int indie_count = 0;
-    for (auto it = games2.begin(); count < 5; it++) {
-        count++;
-        if (std::find(it->second.begin(), it->second.end(), "Indie") != it->second.end()) {
-            indie_count++;
-            graph.insert("Galactic Bowling", it->first, games2["Galactic Bowling"], games2[it->first]);
-        }
-    }
+    // idea; the number of tags a game has defines how many neighbors it has
+    parser.parse_tag_count();
+    parser.print_tag_freq();
     /*
         if keys with matching tags size exceeds 100
             take the next tag of the source and add one to the requirements
