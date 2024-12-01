@@ -47,8 +47,8 @@ std::unordered_map<std::string, std::vector<std::string>> Parser::parse() {
 std::unordered_map<std::string, int> Parser::parse_tag_count() {
     std::unordered_map<std::string, int> tag_count;
 
-    for (const auto& [game_name, tags_vector] : game_data) {
-        for (const auto& tag : tags_vector) {
+    for (const auto& entry : game_data) {
+        for (const auto& tag : entry.second) {
             tag_count[tag]++;
         }
     }
