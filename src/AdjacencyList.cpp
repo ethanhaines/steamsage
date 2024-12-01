@@ -74,25 +74,25 @@ void AdjList::print_tag_frequencies() {
 }
 
 // TODO: need to implement a return type and use the distance and predecessor maps to get whatever we decide will be returned
-void AdjList::BellmanFord(const std::string& source) { // using slides 29-41 from module 11's discussion google doc
+std::vector<std::string> AdjList::BellmanFord(const std::string& source) { // using slides 29-41 from module 11's discussion google doc
     // initialize distance and predecessor maps
-    std::unordered_map<std::string, float> distance;
+    std::unordered_map<std::string, float> distance_map;
     std::unordered_map<std::string, std::string> predecessor;
 
     // set all distance to infinity
     for(const auto& pair : this->adjlist){
         // using https://en.cppreference.com/w/cpp/types/numeric_limits/infinity
-        distance[pair.first] = std::numeric_limits<float>::infinity();
+        distance_map[pair.first] = std::numeric_limits<float>::infinity();
     }
-    distance[source] = 0;
+    distance_map[source] = 0;
 
     // relax each edge V-1 times
     for(auto i = 0; i < this->adjlist.size() - 1; i++){
         // using https://en.cppreference.com/w/cpp/language/structured_binding
         for(const auto& [from, neighbors] : this->adjlist){
             for(const auto& [to, weight] : neighbors){
-                if(distance[from] + weight < distance[to]){
-                    distance[to] = distance[from] + weight;
+                if(distance_map[from] + weight < distance_map[to]){
+                    distance_map[to] = distance_map[from] + weight;
                     predecessor[to] = from;
                 }
             }
@@ -102,14 +102,27 @@ void AdjList::BellmanFord(const std::string& source) { // using slides 29-41 fro
     // attempt to relax all edges one more time and if a distance changes then there is a negative weight cycle
     for(const auto& [from, neighbors] : this->adjlist){
         for(const auto& [to, weight] : neighbors){
-            if(distance[from] + weight < distance[to]){
+            if(distance_map[from] + weight < distance_map[to]){
                 std::cout << "Error: Graph contains a negative-weight cycle" << std::endl;
-                return;
+                return {};
             }
         }
     }
 
+    // using https://cplusplus.com/reference/vector/vector/vector/
+    std::vector<std::pair<std::string, int>> distance_vector(distance_map.begin(), distance_map.end());
+    // using https://en.cppreference.com/w/cpp/algorithm/sort
+    // using https://en.cppreference.com/w/cpp/utility/functional/greater
+    std::sort(distance_vector.begin(), distance_vector.end(), std::greater());
+
+    std::vector<std::string> sorted_distances(distance_vector.size()); // jetBrains IDE was yelling at me to preallocate
+    for(const auto& game : distance_vector){
+        sorted_distances.push_back(game.first);
+    }
+
+    return sorted_distances;
 }
+
 
 // TODO: Implement sorting algorithms
 
