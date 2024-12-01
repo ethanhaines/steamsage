@@ -84,7 +84,7 @@ std::vector<std::string> AdjList::BellmanFord(const std::string& source, const s
         // using https://en.cppreference.com/w/cpp/types/numeric_limits/infinity
         distance_map[pair.first] = std::numeric_limits<float>::infinity();
     }
-    distance_map[source] = 0;
+    distance_map[source] = 0; // set source to 0
 
     // relax each edge V-1 times
     for(auto i = 0; i < this->adjlist.size() - 1; i++){
@@ -109,6 +109,7 @@ std::vector<std::string> AdjList::BellmanFord(const std::string& source, const s
         }
     }
 
+    // if there is no path to end then return empty vector
     if(predecessor.find(end) == predecessor.end()){
         return {};
     }
@@ -116,13 +117,14 @@ std::vector<std::string> AdjList::BellmanFord(const std::string& source, const s
     // TODO: Check if we want to return the source and end games included. Currently includes both
     std::vector<std::string> source_to_end_path;
     std::string current = end; // add end game
+    // add each predecessor that exists until reaching the source node
     while(predecessor.find(current) != predecessor.end()){
         source_to_end_path.push_back(current);
         current = predecessor.at(current);
     }
 
     source_to_end_path.push_back(current); // add source game
-    std::reverse(source_to_end_path.begin(), source_to_end_path.end());
+    std::reverse(source_to_end_path.begin(), source_to_end_path.end()); // reverse list
 
     return source_to_end_path;
 
