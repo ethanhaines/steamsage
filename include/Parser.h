@@ -13,6 +13,8 @@ public:
         this->path = path;
     }
     std::unordered_map<std::string, std::vector<std::string>> parse();
+    std::unordered_map<std::string, int> parse_tag_count();
+    void print_tag_freq();
 private:
     std::string path;
     //sadly, since steam has allowed porn games for probably over a year now, finding datasets without them is hard
@@ -21,4 +23,6 @@ private:
     // the parsing still results in a list of 60,000 games, each with a name and tag, so the data requirements should suffice
     std::unordered_set<std::string> banned_words = {"Hentai", "Nudity", "NSFW"};
     std::vector<std::string> delim_split(const std::string &str, char delim);
+    std::unordered_map<std::string, std::vector<std::string>> game_data;
+    std::unordered_map<std::string, int> tag_count;
 };
