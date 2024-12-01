@@ -73,8 +73,8 @@ void AdjList::print_tag_frequencies() {
     }
 }
 
-// TODO: need to implement a return type and use the distance and predecessor maps to get whatever we decide will be returned
-std::vector<std::string> AdjList::BellmanFord(const std::string& source) { // using slides 29-41 from module 11's discussion google doc
+// TODO: need to FINALIZE a return type and use the distance and predecessor maps to get whatever we decide will be returned
+std::vector<std::string> AdjList::BellmanFord(const std::string& source, const std::string& end) { // using slides 29-41 from module 11's discussion google doc
     // initialize distance and predecessor maps
     std::unordered_map<std::string, float> distance_map;
     std::unordered_map<std::string, std::string> predecessor;
@@ -109,7 +109,26 @@ std::vector<std::string> AdjList::BellmanFord(const std::string& source) { // us
         }
     }
 
-    // using https://cplusplus.com/reference/vector/vector/vector/
+    if(predecessor.find(end) == predecessor.end()){
+        return {};
+    }
+
+    // TODO: Check if we want to return the source and end games included. Currently includes both
+    std::vector<std::string> source_to_end_path;
+    std::string current = end; // add end game
+    while(predecessor.find(current) != predecessor.end()){
+        source_to_end_path.push_back(current);
+        current = predecessor.at(current);
+    }
+
+    source_to_end_path.push_back(current); // add source game
+    std::reverse(source_to_end_path.begin(), source_to_end_path.end());
+
+    return source_to_end_path;
+
+    // code below is for returning a sorted vector of closest to furthest
+
+    /*// using https://cplusplus.com/reference/vector/vector/vector/
     std::vector<std::pair<std::string, int>> distance_vector(distance_map.begin(), distance_map.end());
     // using https://en.cppreference.com/w/cpp/algorithm/sort
     // using https://en.cppreference.com/w/cpp/utility/functional/greater
@@ -120,7 +139,11 @@ std::vector<std::string> AdjList::BellmanFord(const std::string& source) { // us
         sorted_distances.push_back(game.first);
     }
 
-    return sorted_distances;
+    return sorted_distances;*/
+}
+
+void AdjList::Dijkstras() {
+
 }
 
 

@@ -16,8 +16,8 @@ class AdjList { // I got most of the logic from my pagerank project
 public:
     void insert(const std::string& from, const std::string& to, const std::vector<std::string>& from_tags, const std::vector<std::string>& to_tags);
     void print();
-    std::vector<std::string> BellmanFord(const std::string& source);
-    void Dijsktras();
+    std::vector<std::string> BellmanFord(const std::string& source, const std::string& end);
+    void Dijkstras();
     void print_tag_frequencies(); //debug func
     std::unordered_map<std::string, int> get_tag_count();
 private:
