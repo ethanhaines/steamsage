@@ -8,8 +8,8 @@
 #include <algorithm>
 #include <utility>
 void AdjList::insert(const std::string& from, const std::string& to, const std::vector<std::string>& from_tags, const std::vector<std::string>& to_tags) {
-    for (const auto& edge : adjlist[from]) { //skip already inserted games
-        if (edge.first == to) {
+    for (auto& edge : adjlist[from]){ // skip already inserted games
+        if (edge.first == to){
             return;
         }
     }
@@ -65,9 +65,9 @@ std::unordered_map<std::string, int> AdjList::get_tag_count() {
     return tag_count;
 }
 
-void AdjList::initialize_graph(std::string game, std::vector<std::string> tags, std::unordered_map<std::string, std::vector<std::string>>& games, std::unordered_map<std::string, int>& tag_freq, int size, int match_requirement) {
+void AdjList::initialize_graph(std::string game, std::vector<std::string> tags, std::unordered_map<std::string, std::vector<std::string>>& games, int match_requirement) {
     // base case
-    if (size >= 10) {
+    if (size >= 100) {
         return;
     }
     // match requirement will be -1 for the first call only, in order to initialize
@@ -75,6 +75,7 @@ void AdjList::initialize_graph(std::string game, std::vector<std::string> tags, 
         match_requirement = tags.size();
     }
 
+    std::cout << size << std::endl;
     for (auto& entry : games) {
         const std::string& other_game = entry.first;
         const std::vector<std::string>& other_tags = entry.second;
@@ -96,17 +97,18 @@ void AdjList::initialize_graph(std::string game, std::vector<std::string> tags, 
         // the idea is that you start with looking for games that are exact tag matches, then reduce the requirement
         if (match_count >= match_requirement) {
             insert(game, other_game, tags, other_tags);
+            std::cout << "inserting: " << game << " with " << other_game << std::endl;
             size++;
-            if (size >= 10) {
+            if (size >= 100) {
                 return;
             }
-            initialize_graph(other_game, other_tags, games, tag_freq, size, match_requirement); //recursive call for the newly inserted games
+            initialize_graph(other_game, other_tags, games, match_requirement); //recursive call for the newly inserted games
         }
     }
 
     // if no games were added, reduce the requirement and try again
-    if (match_requirement > 1) {
-        initialize_graph(game, tags, games, tag_freq, size, match_requirement - 1);
+    if (match_requirement > 1 && size < 100) {
+        initialize_graph(game, tags, games, match_requirement - 1);
     }
     if (match_requirement == 0){ // edge case
         return;

@@ -13,8 +13,6 @@ public:
         this->path = path;
     }
     std::unordered_map<std::string, std::vector<std::string>> parse();
-    std::unordered_map<std::string, int> parse_tag_count();
-    void print_tag_freq();
 private:
     std::string path;
     //sadly, since steam has allowed porn games for probably over a year now, finding datasets without them is hard

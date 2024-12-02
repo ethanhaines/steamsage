@@ -20,7 +20,7 @@ std::vector<std::string> Parser::delim_split(const std::string &str, char delim)
 
 std::unordered_map<std::string, std::vector<std::string>> Parser::parse() {
     std::unordered_map<std::string, std::vector<std::string>> data;
-    io::CSVReader<2, io::trim_chars<' '>, io::double_quote_escape<',','\"'>> in("../resources/games.csv");
+    io::CSVReader<2, io::trim_chars<' '>, io::double_quote_escape<',','\"'>> in(path);
     in.read_header(io::ignore_extra_column, "Name", "Tags");
     std::string name, tags;
     while (in.read_row(name, tags)) {
@@ -41,27 +41,7 @@ std::unordered_map<std::string, std::vector<std::string>> Parser::parse() {
         data[name] = tags_vector;
     }
     game_data = data;
-    return data;
+    return game_data;
 }
-
-std::unordered_map<std::string, int> Parser::parse_tag_count() {
-    std::unordered_map<std::string, int> tag_count;
-
-    for (const auto& entry : game_data) {
-        for (const auto& tag : entry.second) {
-            tag_count[tag]++;
-        }
-    }
-    this->tag_count = tag_count;
-    return tag_count;
-}
-
-void Parser::print_tag_freq() {
-    std::cout << "Tag Frequencies:" << std::endl;
-    for (const auto& entry : tag_count) {
-        std::cout << "Tag: " << entry.first << " Frequency: " << entry.second << std::endl;
-    }
-}
-
 
 
