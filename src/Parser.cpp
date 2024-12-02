@@ -20,7 +20,7 @@ std::vector<std::string> Parser::delim_split(const std::string &str, char delim)
 
 std::unordered_map<std::string, std::vector<std::string>> Parser::parse() {
     std::unordered_map<std::string, std::vector<std::string>> data;
-    io::CSVReader<2, io::trim_chars<' '>, io::double_quote_escape<',','\"'>> in("../resources/games.csv");
+    io::CSVReader<2, io::trim_chars<' '>, io::double_quote_escape<',','\"'>> in(path);
     in.read_header(io::ignore_extra_column, "Name", "Tags");
     std::string name, tags;
     while (in.read_row(name, tags)) {
@@ -40,8 +40,8 @@ std::unordered_map<std::string, std::vector<std::string>> Parser::parse() {
         }
         data[name] = tags_vector;
     }
-    return data;
+    game_data = data;
+    return game_data;
 }
-
 
 

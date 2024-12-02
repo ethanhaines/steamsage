@@ -1,7 +1,7 @@
 # ninja log v6
-17	119	7541269683529306	CMakeFiles/steamsage.dir/src/AdjacencyMatrix.cpp.obj	46c6d1ce79503952
 22	119	7541269683579319	CMakeFiles/steamsage.dir/src/Parser.cpp.obj	6f1c37388f75874a
 217	307	7540249805676357	steamsage.exe	d9b64e1324c667bd
-3	236	7541269683401094	CMakeFiles/steamsage.dir/src/main.cpp.obj	164020c6e16cab73
-1	234	7541299313536917	build.ninja	f530cc5300c7eb7d
-12	229	7541299465925000	CMakeFiles/steamsage.dir/src/main.cpp.obj	164020c6e16cab73
+8	564	7547888161512091	CMakeFiles/steamsage.dir/src/main.cpp.obj	cb39f8b55f5e8bb3
+25	109	7547889652946823	CMakeFiles/steamsage.dir/src/BFS.cpp.obj	7bf13768be50503a
+6	203	7547890441396520	build.ninja	14af28a8765595b0
+13	694	7547889652821744	CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.obj	2f7a10ba67841f2b
