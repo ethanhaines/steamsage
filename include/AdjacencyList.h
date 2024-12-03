@@ -12,7 +12,7 @@
 #include <unordered_set>
 #include <utility>
 #include <limits> // for infinity
-#include <graphviz/gvc.h> // for graphviz LOOK AT "CMakeLists.txt" for instructions
+// #include <graphviz/gvc.h> // for graphviz LOOK AT "CMakeLists.txt" for instructions
 
 class AdjList { // I got most of the logic from my pagerank project
 public:

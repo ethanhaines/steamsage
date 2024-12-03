@@ -214,6 +214,7 @@ void AdjList::addEdge(const std::string& from, const std::string& to, float weig
 // using https://graphviz.org/documentation/
 std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highlight_shortest_path) { // using https://graphviz.org/documentation/
     // start dot file string
+    // std::cout << "start trying" << std::endl;
     std::string dotString = "strict graph { \n"; // "strict" graph makes it so undirected edges cant be added twice
 
     for(const auto& [from, adjacent] : this->adjlist){ // add all edges to dot file string
@@ -227,8 +228,8 @@ std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highl
             dotString.append(" color=\"black\"]\n");
         }
     }
-
-    if(highlight_shortest_path){ // if we want the shortest path to be highlighted, color the path red
+    // std::cout << "start higlighting" <<std::endl;
+    if(highlight_shortest_path && !path.empty()){ // if we want the shortest path to be highlighted, color the path red
         for(int i = 0; i < path.size() - 1; i++){
             dotString.append("  \"");
             dotString.append(path[i]);
@@ -239,6 +240,7 @@ std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highl
     }
 
     dotString.append("}\n"); // end dot file
+    // std::cout << "finish dot file" << std::endl;
 
     // create and write dot file
     //using https://cplusplus.com/reference/fstream/fstream/?kw=fstream
