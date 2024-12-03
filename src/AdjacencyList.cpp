@@ -63,10 +63,6 @@ void AdjList::calculate_weights(const std::string& from, const std::string& to, 
     }
 }
 
-std::unordered_map<std::string, int> AdjList::get_tag_count() {
-    return tag_count;
-}
-
 void AdjList::initialize_graph(std::string game, std::vector<std::string> tags,
                                std::unordered_map<std::string, std::vector<std::string>>& games,
                                int match_requirement) {
