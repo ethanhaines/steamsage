@@ -70,12 +70,7 @@ void AdjList::initialize_graph(std::string game, std::vector<std::string> tags,
         return; // skip already visited games
     }
 
-
-    if (match_requirement == 0){
-        return;
-    }
-    // Base case to stop recursion
-    if (size >= 100) {
+    if (match_requirement == 0 || size >= 100){
         return;
     }
 
