@@ -3,3 +3,5 @@ resources/games.csv
 cmake-build-debug/Testing/Temporary/LastTest.log
 cmake-build-debug/Testing/Temporary/LastTest.log
 cmake-build-debug/Testing/Temporary/LastTest.log
+cmake-build-debug/Testing/Temporary/LastTest.log
+*.log
