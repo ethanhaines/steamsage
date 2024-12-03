@@ -5,3 +5,5 @@ cmake-build-debug/Testing/Temporary/LastTest.log
 cmake-build-debug/Testing/Temporary/LastTest.log
 cmake-build-debug/Testing/Temporary/LastTest.log
 *.log
+.idea/editor.xml
+cmake-build-debug/Testing/Temporary/LastTest.log
