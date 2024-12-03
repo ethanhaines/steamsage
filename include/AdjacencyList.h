@@ -20,6 +20,7 @@ public:
     void print();
     std::vector<std::string> BellmanFord(const std::string& source, const std::string& end);
     void Dijsktras();
+    int get_size();
     std::unordered_map<std::string, int> get_tag_count();
     void initialize_graph(std::string game, std::vector<std::string> tags, std::unordered_map<std::string, std::vector<std::string>>& games, int match_requirement);
     void addEdge(const std::string& from, const std::string& to, float weight); // debug algorithms
@@ -31,6 +32,7 @@ private:
     std::unordered_map<std::string, std::vector<std::pair<std::string, float>>> adjlist; // issue with this, we need to be able to know the weights of the specific edges e.g. V1-V2: 0.75
     std::unordered_map<std::string, std::unordered_set<std::string>> tags;
     std::unordered_map<std::string, int> tag_count;
+    std::unordered_set<std::string> visited;
     int size = 0;
 };
 
