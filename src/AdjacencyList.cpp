@@ -141,6 +141,258 @@ int AdjList::get_size() {
 }
 
 
+void AdjList::addEdge(const std::string& from, const std::string& to, float weight) {
+    this->adjlist[from].emplace_back(to, weight);
+    this->adjlist[to].emplace_back(from, weight); // add reverse edge
+}
 
+void AdjList::graphToPNG(const std::vector<std::string>& path) { // using https://graphviz.org/documentation/
+    std::string dotString = "strict graph { \n"; // start dot file string
+
+    for(const auto& [from, adjacent] : this->adjlist){ // add all edges to dot file
+        for(const auto& [to, weight] : adjacent){
+            dotString.append( "  ");
+            dotString.append(from);
+            dotString.append(" -- ");
+            dotString.append(to);
+            dotString.append(" [label=");
+            dotString.append(std::to_string(weight));
+            dotString.append(" color=\"black\"]");
+        }
+    }
+
+    // color the path of shortest vertex
+
+    dotString.append("}");
+
+}
+
+std::vector<std::string> AdjList::BellmanFord(const std::string& source, const std::string& end) { // using slides 29-41 from module 11's discussion google doc
+    if(source == end){
+        return {};
+    }
+
+    // initialize distance and predecessor maps
+    std::unordered_map<std::string, float> distance_map;
+    std::unordered_map<std::string, std::string> predecessor;
+
+    // set all distance to infinity
+    for(const auto& pair : this->adjlist){
+        // using https://en.cppreference.com/w/cpp/types/numeric_limits/infinity
+        distance_map[pair.first] = std::numeric_limits<float>::infinity();
+    }
+    distance_map[source] = 0; // set source to 0
+
+    // relax each edge V-1 times
+    for(auto i = 0; i < this->adjlist.size() - 1; i++){
+        // using https://en.cppreference.com/w/cpp/language/structured_binding
+        for(const auto& [from, neighbors] : this->adjlist){
+            for(const auto& [to, weight] : neighbors){
+                if(distance_map[from] + weight < distance_map[to]){
+                    distance_map[to] = distance_map[from] + weight;
+                    predecessor[to] = from;
+                }
+            }
+        }
+    }
+
+    // attempt to relax all edges one more time and if a distance changes then there is a negative weight cycle
+    for(const auto& [from, neighbors] : this->adjlist){
+        for(const auto& [to, weight] : neighbors){
+            if(distance_map[from] + weight < distance_map[to]){
+                std::cout << "Error: Graph contains a negative-weight cycle (From Bellman-Ford method)" << std::endl;
+                return {};
+            }
+        }
+    }
+
+    // if there is no path to end then return empty vector
+    if(predecessor.find(end) == predecessor.end()){
+        return {};
+    }
+
+    std::vector<std::string> source_to_end_path;
+    std::string current = end; // add end game
+    // add each predecessor that exists until reaching the source node
+    while(predecessor.find(current) != predecessor.end()){
+        source_to_end_path.push_back(current);
+        current = predecessor.at(current);
+    }
+    source_to_end_path.push_back(current);
+
+    // source_to_end_path.push_back(current); // add source game
+    std::reverse(source_to_end_path.begin(), source_to_end_path.end()); // reverse list
+
+    return source_to_end_path;
+}
+
+
+
+
+
+
+void testGraphAlgorithms(){ // put this at the bottom it's just for testing, but it's a lot of lines of code
+    // test 1
+    AdjList graph1;
+    graph1.addEdge("a", "b", 1);
+    graph1.addEdge("b", "c", 1);
+    graph1.addEdge("c", "d", 1);
+
+    std::cout << "Test 1: simple path (should be \"a b c d\"): ";
+    std::vector<std::string> testPath = graph1.BellmanFord("a", "d");
+
+    if(testPath.empty()){
+        std::cout << "no path";
+    }
+    for(const std::string& game : testPath){
+        std::cout << game << " ";
+    }
+    std::cout << std::endl;
+
+
+    // test 2
+    AdjList graph2;
+    graph2.addEdge("a", "b", 1);
+    graph2.addEdge("b", "c", 1);
+    graph2.addEdge("c", "d", -100);
+    graph2.addEdge("b", "d", 1);
+
+    std::cout << "Test 2: negative cycle (should be only error message): ";
+    testPath = graph2.BellmanFord("a", "d");
+
+    if(testPath.empty()){
+        std::cout << "no path";
+    }
+    for(const std::string& game : testPath){
+        std::cout << game << " ";
+    }
+    std::cout << std::endl;
+
+
+    // test 3
+    AdjList graph3;
+    graph3.addEdge("a", "b", 1);
+    graph3.addEdge("c", "d", 1);
+
+    std::cout << "Test 3: disconnected graph (should be \"no path\"): ";
+    testPath = graph3.BellmanFord("a", "d");
+
+    if(testPath.empty()){
+        std::cout << "no path";
+    }
+    for(const std::string& game : testPath){
+        std::cout << game << " ";
+    }
+    std::cout << std::endl;
+
+
+    // test 4
+    AdjList graph4;
+    graph4.addEdge("a", "b", 100);
+    graph4.addEdge("b", "c", 1);
+    graph4.addEdge("c", "d", 1);
+    graph4.addEdge("a", "i", 1);
+    graph4.addEdge("i", "j", 1);
+    graph4.addEdge("j", "d", 1);
+
+
+    std::cout << "Test 4: multiple paths (should be \"a i j d\"): ";
+    testPath = graph4.BellmanFord("a", "d");
+
+    if(testPath.empty()){
+        std::cout << "no path";
+    }
+    for(const std::string& game : testPath){
+        std::cout << game << " ";
+    }
+    std::cout << std::endl;
+
+
+    // test 5
+    AdjList graph5;
+    graph5.addEdge("a", "a", 1);
+
+    std::cout << "Test 5: one vertex (should be \"no path\"): ";
+    testPath = graph5.BellmanFord("a", "d");
+
+    if(testPath.empty()){
+        std::cout << "no path";
+    }
+    for(const std::string& game : testPath){
+        std::cout << game << " ";
+    }
+    std::cout << std::endl;
+
+
+    // test 6
+    AdjList graph6;
+    graph6.addEdge("a", "b", 1);
+    graph6.addEdge("c", "d", 1);
+
+    std::cout << "Test 6: no path exists (should be \"no path\"): ";
+    testPath = graph6.BellmanFord("a", "d");
+
+    if(testPath.empty()){
+        std::cout << "no path";
+    }
+    for(const std::string& game : testPath){
+        std::cout << game << " ";
+    }
+    std::cout << std::endl;
+
+
+    // test 7
+    AdjList graph7;
+    for(int i = 1; i < 101; i++){
+        graph7.addEdge(std::to_string(i), std::to_string(i+1), 1);
+    }
+
+    std::cout << "Test 7: very large graph (should be \"1 - 100\"): ";
+    testPath = graph7.BellmanFord("0", "100");
+
+    if(testPath.empty()){
+        std::cout << "no path";
+    }
+    for(const std::string& game : testPath){
+        std::cout << game << " ";
+    }
+    std::cout << std::endl;
+
+
+    // test 8
+    AdjList graph8;
+    graph8.addEdge("a", "b", 0);
+    graph8.addEdge("b", "c", 0);
+    graph8.addEdge("c", "d", 1);
+
+    std::cout << "Test 8: 0 weight edges (should be \"a b c d\"): ";
+    testPath = graph8.BellmanFord("a", "d");
+
+    if(testPath.empty()){
+        std::cout << "no path";
+    }
+    for(const std::string& game : testPath){
+        std::cout << game << " ";
+    }
+    std::cout << std::endl;
+
+
+    // test 9
+    AdjList graph9;
+    graph9.addEdge("a", "b", -5);
+    graph9.addEdge("b", "a", 10);
+    graph9.addEdge("c", "d", 100);
+
+    std::cout << "Test 9: negative edge weights but no negative cycles (should be error message still): ";
+    testPath = graph9.BellmanFord("a", "d");
+
+    if(testPath.empty()){
+        std::cout << "no path";
+    }
+    for(const std::string& game : testPath){
+        std::cout << game << " ";
+    }
+    std::cout << std::endl;
+}
 
 
