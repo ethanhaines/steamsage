@@ -15,7 +15,7 @@ public:
     void insert(const std::string& from, const std::string& to, const std::vector<std::string>& from_tags, const std::vector<std::string>& to_tags);
     void print();
     void BellmanFord();
-    void Dijsktras();
+    void Dijsktras(const std::string & start);
     void print_tag_frequencies(); //debug func
     std::unordered_map<std::string, int> get_tag_count();
 private:

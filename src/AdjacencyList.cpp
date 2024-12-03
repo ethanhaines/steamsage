@@ -6,7 +6,10 @@
 #include <iomanip>
 #include <vector>
 #include <algorithm>
+#include <limits>
+#include <queue>
 #include <utility>
+using namespace std;
 void AdjList::insert(const std::string& from, const std::string& to, const std::vector<std::string>& from_tags, const std::vector<std::string>& to_tags) {
     if (adjlist.find(from) == adjlist.end()) {
         adjlist[from] = std::vector<std::pair<std::string, float>>();
@@ -65,6 +68,55 @@ void AdjList::calculate_weights(const std::string& from, const std::string& to, 
 std::unordered_map<std::string, int> AdjList::get_tag_count() {
     return tag_count;
 }
+
+vector<string> AdjList::Dijsktras(const string& start, const string& destination) {
+    unordered_map<string, float> distance;
+    unordered_set<string> visited;
+    unordered_map<string, string> previous;
+    using Pair = pair<float, string>;
+    priority_queue<Pair, vector<Pair>, greater<>> pq;
+
+    for (const auto& pair : adjlist) {
+        distance[pair.first] = numeric_limits<float>::infinity();
+    }
+    distance[start] = 0;
+    pq.push({0, start});
+
+    while (!pq.empty()) {
+        Pair top = pq.top();
+        pq.pop();
+        float current_distance = top.first;
+        string current_node = top.second;
+
+        if (visited.count(current_node)) {
+            continue;
+        }
+        visited.insert(current_node);
+
+        for (const auto& neighbor : adjlist[current_node]) {
+            const string& neighbor_node = neighbor.first;
+            float weight = neighbor.second;
+
+            if (current_distance + weight < distance[neighbor_node]) {
+                distance[neighbor_node] = current_distance + weight;
+                previous[neighbor_node] = current_node;
+                pq.push({distance[neighbor_node], neighbor_node});
+            }
+        }
+    }
+
+    vector<string> path;
+    for (string at = destination; at != ""; at = previous[at]) {
+        path.push_back(at);
+        if (at == start) break;
+    }
+    reverse(path.begin(), path.end());
+
+    if (path.front() != start) return {};
+
+    return path;
+}
+
 
 void AdjList::print_tag_frequencies() {
     std::cout << "Tag Frequencies:" << std::endl;
