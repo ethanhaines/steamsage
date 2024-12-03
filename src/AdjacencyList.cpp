@@ -4,6 +4,8 @@
 
 #include "../include/AdjacencyList.h"
 #include <iomanip>
+#include <queue>
+#include <limits>
 #include <vector>
 #include <algorithm>
 #include <utility>
@@ -138,6 +140,54 @@ void AdjList::initialize_graph(std::string game, std::vector<std::string> tags,
 
 int AdjList::get_size() {
     return size;
+}
+
+std::vector<std::string> AdjList::Dijsktras(const std::string& start, const std::string& destination) {
+    std::unordered_map<std::string, float> distance;
+    std::unordered_set<std::string> visited;
+    std::unordered_map<std::string, std::string> previous;
+    using Pair = std::pair<float, std::string>;
+    std::priority_queue<Pair, std::vector<Pair>, std::greater<>> pq;
+
+    for (const auto& pair : adjlist) {
+        distance[pair.first] = std::numeric_limits<float>::infinity();
+    }
+    distance[start] = 0;
+    pq.push({0, start});
+
+    while (!pq.empty()) {
+        Pair top = pq.top();
+        pq.pop();
+        float current_distance = top.first;
+        std::string current_node = top.second;
+
+        if (visited.count(current_node)) {
+            continue;
+        }
+        visited.insert(current_node);
+
+        for (const auto& neighbor : adjlist[current_node]) {
+            const std::string& neighbor_node = neighbor.first;
+            float weight = neighbor.second;
+
+            if (current_distance + weight < distance[neighbor_node]) {
+                distance[neighbor_node] = current_distance + weight;
+                previous[neighbor_node] = current_node;
+                pq.push({distance[neighbor_node], neighbor_node});
+            }
+        }
+    }
+
+    std::vector<std::string> path;
+    for (std::string at = destination; at != ""; at = previous[at]) {
+        path.push_back(at);
+        if (at == start) break;
+    }
+    reverse(path.begin(), path.end());
+
+    if (path.front() != start) return {};
+
+    return path;
 }
 
 

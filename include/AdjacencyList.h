@@ -16,8 +16,8 @@ class AdjList { // I got most of the logic from my pagerank project
 public:
     void insert(const std::string& from, const std::string& to, const std::vector<std::string>& from_tags, const std::vector<std::string>& to_tags);
     void print();
+    void Dijsktras(const std::string & start);
     std::vector<std::string> BellmanFord(const std::string& source, const std::string& end);
-    void Dijsktras();
     int get_size();
     std::unordered_map<std::string, int> get_tag_count();
     void initialize_graph(std::string game, std::vector<std::string> tags, std::unordered_map<std::string, std::vector<std::string>>& games, int match_requirement);
