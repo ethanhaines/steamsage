@@ -30,6 +30,7 @@ int main() {
     graph.print();
     std::cout << graph.get_size() << std::endl;
     //probably want to start using modularity and creating functions for everything, like init() for parsing
+    std::cout  << graph.graphToPNG(graph.BellmanFord("Galactic Bowling", "Fueled Up"), true);
 
     return 0;
 }

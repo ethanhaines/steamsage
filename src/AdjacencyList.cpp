@@ -218,11 +218,11 @@ std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highl
 
     for(const auto& [from, adjacent] : this->adjlist){ // add all edges to dot file string
         for(const auto& [to, weight] : adjacent){
-            dotString.append( "  ");
+            dotString.append( "  \"");
             dotString.append(from);
-            dotString.append(" -- ");
+            dotString.append("\" -- \"");
             dotString.append(to);
-            dotString.append(" [label=");
+            dotString.append("\" [label=");
             dotString.append(std::to_string(weight));
             dotString.append(" color=\"black\"]\n");
         }
@@ -230,11 +230,11 @@ std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highl
 
     if(highlight_shortest_path){ // if we want the shortest path to be highlighted, color the path red
         for(int i = 0; i < path.size() - 1; i++){
-            dotString.append("  ");
+            dotString.append("  \"");
             dotString.append(path[i]);
-            dotString.append(" -- ");
+            dotString.append("\" -- \"");
             dotString.append(path[i + 1]);
-            dotString.append(" [color=red]\n");
+            dotString.append("\" [color=red]\n");
         }
     }
 
