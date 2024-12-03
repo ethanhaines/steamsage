@@ -8,6 +8,7 @@
 #include <limits>
 #include <vector>
 #include <algorithm>
+#include <stack>
 #include <utility>
 void AdjList::insert(const std::string& from, const std::string& to, const std::vector<std::string>& from_tags, const std::vector<std::string>& to_tags) {
     for (auto& edge : adjlist[from]){ // skip already inserted games
@@ -63,71 +64,91 @@ void AdjList::calculate_weights(const std::string& from, const std::string& to, 
     }
 }
 
-void AdjList::initialize_graph(std::string game, std::vector<std::string> tags,
+
+void AdjList::initialize_graph(std::string start_game, std::vector<std::string> start_tags,
                                std::unordered_map<std::string, std::vector<std::string>>& games,
-                               int match_requirement) {
-    if (visited.find(game) != visited.end()) {
-        return; // skip already visited games
-    }
+                               int initial_match_requirement) {
+    std::stack<std::tuple<std::string, std::vector<std::string>, int>> stack;
 
-    if (match_requirement == 0 || size >= 100){
-        return;
-    }
+    // push the starting game onto the stack
+    stack.emplace(start_game, start_tags, initial_match_requirement);
 
-    // initialize match_requirement for the first call for each game
-    if (match_requirement == -1) {
-        match_requirement = tags.size();
-    }
-    bool inserted = false;
+    while (!stack.empty()) {
+        // get the top element from the stack in the form of a tuple
+        auto [game, tags, match_requirement] = stack.top();
+        stack.pop();
 
-    for (auto& entry : games) {
-        const std::string& other_game = entry.first;
-        const std::vector<std::string>& other_tags = entry.second;
-
-        // skip the current game
-        if (other_game == game) {
+        // Skip already visited games
+        if (visited.find(game) != visited.end()) {
             continue;
         }
 
-        bool edge_exists = false;
-        for (auto& edge : adjlist[game]) {
-            if (edge.first == other_game) {
-                edge_exists = true; // check if the edge already exists between games
-                break;
+        // Initialize match_requirement for the first call for each game
+        if (match_requirement == -1) {
+            match_requirement = tags.size();
+        }
+
+        bool inserted = false;
+
+        for (auto& entry : games) {
+            const std::string& other_game = entry.first;
+            const std::vector<std::string>& other_tags = entry.second;
+
+            // skip the current game
+            if (other_game == game) {
+                continue;
+            }
+
+            // check if the edge already exists
+            bool edge_exists = false;
+            for (auto& edge : adjlist[game]) {
+                if (edge.first == other_game) {
+                    edge_exists = true;
+                    break;
+                }
+            }
+
+            if (edge_exists) {
+                continue;
+            }
+
+            int match_count = 0;
+            for (const auto& tag : tags) {
+                if (std::find(other_tags.begin(), other_tags.end(), tag) != other_tags.end()) {
+                    match_count++;
+                }
+            }
+
+            if (match_count >= match_requirement) {
+                insert(game, other_game, tags, other_tags);
+                size++;
+                inserted = true;
+
+                // push the newly inserted game onto the stack
+                stack.emplace(other_game, other_tags, -1);
+
+                // stop if the graph reaches the size limit
+                if (size >= 100) {
+                    return;
+                }
             }
         }
 
-        if (edge_exists) {
-            continue; // skip if the edge already exists
-        }
-
-        // count matching tags
-        int match_count = 0;
-        for (const auto& tag : tags) {
-            if (std::find(other_tags.begin(), other_tags.end(), tag) != other_tags.end()) {
-                match_count++;
+        // if no insertion occurred, decrease the match requirement or mark the game as visited
+        if (!inserted) {
+            if (match_requirement > 1) {
+                stack.emplace(game, tags, match_requirement - 1);
+            } else {
+                visited.insert(game);
             }
-        }
-
-        // add the game if it satisfies the requirement
-        if (match_count >= match_requirement) {
-            insert(game, other_game, tags, other_tags);
-            size++;
-            inserted = true;
-            initialize_graph(other_game, other_tags, games, -1);
-            if (size >= 100) {
-                return;
-            }
-        }
-    }
-    if (!inserted) {
-        if (match_requirement > 1) {
-            initialize_graph(game, tags, games, match_requirement - 1);
-        } else {
-            visited.insert(game);
         }
     }
 }
+
+
+
+
+
 
 int AdjList::get_size() {
     return size;
