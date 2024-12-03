@@ -28,6 +28,7 @@ int main() {
     std::getline(std::cin, game);
     graph.initialize_graph(game, games[game], games, -1);
     graph.print();
+    std::cout << graph.get_size() << std::endl;
     //probably want to start using modularity and creating functions for everything, like init() for parsing
 
     return 0;
