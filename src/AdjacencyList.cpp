@@ -65,24 +65,47 @@ std::unordered_map<std::string, int> AdjList::get_tag_count() {
     return tag_count;
 }
 
-void AdjList::initialize_graph(std::string game, std::vector<std::string> tags, std::unordered_map<std::string, std::vector<std::string>>& games, int match_requirement) {
-    // base case
+void AdjList::initialize_graph(std::string game, std::vector<std::string> tags,
+                               std::unordered_map<std::string, std::vector<std::string>>& games,
+                               int match_requirement) {
+    if (visited.find(game) != visited.end()) {
+        return; // skip already visited games
+    }
+
+
+    if (match_requirement == 0){
+        return;
+    }
+    // Base case to stop recursion
     if (size >= 100) {
         return;
     }
-    // match requirement will be -1 for the first call only, in order to initialize
-    if (match_requirement == -1){ // this is the number of matching tags required, initialized for the first run here
+
+    // initialize match_requirement for the first call for each game
+    if (match_requirement == -1) {
         match_requirement = tags.size();
     }
+    bool inserted = false;
 
-    std::cout << size << std::endl;
     for (auto& entry : games) {
         const std::string& other_game = entry.first;
         const std::vector<std::string>& other_tags = entry.second;
 
-        // skip the source game
+        // skip the current game
         if (other_game == game) {
             continue;
+        }
+
+        bool edge_exists = false;
+        for (auto& edge : adjlist[game]) {
+            if (edge.first == other_game) {
+                edge_exists = true; // check if the edge already exists between games
+                break;
+            }
+        }
+
+        if (edge_exists) {
+            continue; // skip if the edge already exists
         }
 
         // count matching tags
@@ -93,26 +116,28 @@ void AdjList::initialize_graph(std::string game, std::vector<std::string> tags, 
             }
         }
 
-        // add the game if the matching tags count satisfies the currently required amount
-        // the idea is that you start with looking for games that are exact tag matches, then reduce the requirement
+        // add the game if it satisfies the requirement
         if (match_count >= match_requirement) {
             insert(game, other_game, tags, other_tags);
-            std::cout << "inserting: " << game << " with " << other_game << std::endl;
             size++;
+            inserted = true;
+            initialize_graph(other_game, other_tags, games, -1);
             if (size >= 100) {
                 return;
             }
-            initialize_graph(other_game, other_tags, games, match_requirement); //recursive call for the newly inserted games
         }
     }
+    if (!inserted) {
+        if (match_requirement > 1) {
+            initialize_graph(game, tags, games, match_requirement - 1);
+        } else {
+            visited.insert(game);
+        }
+    }
+}
 
-    // if no games were added, reduce the requirement and try again
-    if (match_requirement > 1 && size < 100) {
-        initialize_graph(game, tags, games, match_requirement - 1);
-    }
-    if (match_requirement == 0){ // edge case
-        return;
-    }
+int AdjList::get_size() {
+    return size;
 }
 
 
