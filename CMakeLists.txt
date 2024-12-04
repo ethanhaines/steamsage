@@ -11,5 +11,5 @@ add_executable(steamsage
         include/AdjacencyList.h
         include/Parser.h
         include/csv.h
-        src/BFS.cpp)
+)
 
