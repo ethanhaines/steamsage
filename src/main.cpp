@@ -10,6 +10,15 @@
 #include <vector>
 #include <algorithm>
 #include <SFML/Graphics.hpp>  // Include SFML Graphics
+#include <SFML/Window.hpp>
+
+/*
+ * SFML sources used:
+ * git repository    https://github.com/SFML/SFML
+ * example code      https://github.com/SFML/cmake-sfml-project/blob/master/CMakeLists.txt
+ * cmake tutorial    https://www.youtube.com/watch?v=R3x2OvsUHOU
+ * */
+
 
 // I wanted to find a way for the user to be able to see if they made a typo or if the game they wanted didn't exist in our csv
 // So i found something called levenshtein distance for finding string similarity, and i found a stack overflow and
@@ -87,6 +96,37 @@ std::string get_game(std::string possible_game,  std::vector<std::string>& keys,
     }
 }
 
+void displayPNG(std::string filename){ // using https://stackoverflow.com/questions/24358968/loading-a-texture-in-sfml
+
+    sf::Texture pngTexture;
+    if(!pngTexture.loadFromFile(filename + ".png")){
+        std::cerr << "Error: Loading SFML PNG" << std::endl;
+        return;
+    }
+
+    sf::Vector2u pngSize = pngTexture.getSize();
+    auto width = pngSize.x;
+    auto height = pngSize.y;
+
+    sf::Sprite pngSprite;
+    pngSprite.setTexture(pngTexture);
+
+
+    sf::RenderWindow window(sf::VideoMode(width, height), "Display Graph");
+
+    while (window.isOpen()){
+        sf::Event event;
+        while(window.pollEvent(event)){
+            if(event.type == sf::Event::Closed)
+                window.close();
+
+            window.clear(sf::Color(255, 255, 255));
+            window.draw(pngSprite);
+            window.display();
+        }
+    }
+}
+
 void input(std::unordered_map<std::string, std::vector<std::string>>& games, std::vector<std::string>& keys, AdjList& graph){
     // TODO: somehow loop
     std::cout << "Enter a game you like: " << std::endl;
@@ -96,6 +136,8 @@ void input(std::unordered_map<std::string, std::vector<std::string>>& games, std
 
     graph.initialize_graph(game, games[game], games, -1);
     graph.graphToPNG({},false, "graph_not_highlighted");
+    displayPNG("graph_not_highlighted");
+
     // TODO: graph should be displayed here
 
 
@@ -131,9 +173,9 @@ void init(Parser& p, AdjList& g, std::unordered_map<std::string, std::vector<std
     input(games, keys, g);
 }
 
-int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Window");
 
+
+int main() {
     Parser parser("../resources/games.csv");
     AdjList graph;
     std::unordered_map<std::string, std::vector<std::string>> games;
