@@ -28,6 +28,7 @@
 // https://stackoverflow.com/questions/36472793/levenshtein-distance-algorithm
 // https://stackoverflow.com/questions/31625387/levenshtein-distance-where-i-only-care-about-words
 // https://stackoverflow.com/questions/3183149/most-efficient-way-to-calculate-levenshtein-distance
+// I also used the 12/4 discussion slides logic to help
 int levenshtein_distance(const std::string& s1, const std::string& s2) {
     int m = s1.size();
     int n = s2.size();
@@ -128,22 +129,20 @@ void displayPNG(std::string filename){ // using https://stackoverflow.com/questi
 }
 
 void input(std::unordered_map<std::string, std::vector<std::string>>& games, std::vector<std::string>& keys, AdjList& graph){
-    // TODO: somehow loop
     std::cout << "Enter a game you like: " << std::endl;
     std::string possible_game;
     std::getline(std::cin, possible_game);
     std::string game = get_game(possible_game, keys, games);
 
+    std::cout << "Loading graph (takes ~30 seconds)..." << std::endl;
     graph.initialize_graph(game, games[game], games, -1);
+    std::cout << "Displaying graph..." << std::endl;
     graph.graphToPNG({},false, "graph_not_highlighted");
-    displayPNG("graph_not_highlighted");
 
-    // TODO: graph should be displayed here
-
+    bool bellman = false;
 
     std::vector<std::string> search_path;
-    // TODO: fix this next prompt its unclear
-    std::cout << "Choose a game from the graph that you would like to find similar games for: " << std::endl;
+    std::cout << "Choose a game from the graph that you also like, the most similar games between your two inputs will be along the shortest path: " << std::endl;
 
     std::string possible_game2;
     std::getline(std::cin, possible_game2);
@@ -152,15 +151,41 @@ void input(std::unordered_map<std::string, std::vector<std::string>>& games, std
     std::cout << "Input 1 to search for this game using Dijsktras, anything else for Bellman-Ford" << std::endl;
     int in;
     std::cin >> in;
+
     if (in == 1){
         search_path = graph.Dijsktras(game, game2);
+        std::cout << "Dijsktras took: " << graph.get_dijsktras_time() << " seconds" << std::endl;
+        bellman = false;
     }
+
     else{
         search_path = graph.BellmanFord(game, game2);
+        std::cout << "Bellman-Ford took: " << graph.get_bellman_time() << " seconds" << std::endl;
+        bellman = true;
     }
+
+    std::cout << "Displaying chosen algorithm's search path..." << std::endl;
     graph.graphToPNG(search_path, true, "graph_highlighted");
 
-    // TODO: display the time of the search path and/or both/either/one
+    std::string in2;
+    std::cout << "Would you like to attempt the search with the other algorithm? Enter Y or y: " << std::endl;
+    std::cin >> in2;
+
+    if (in2 == "Y" || in2 == "y"){
+        if (!bellman){
+            search_path = graph.BellmanFord(game, game2);
+            std::cout << "Bellman-Ford took: " << graph.get_bellman_time() << " seconds" << std::endl;
+        }
+
+        else{
+            search_path = graph.Dijsktras(game, game2);
+            std::cout << "Dijsktras took: " << graph.get_dijsktras_time() << " seconds" << std::endl;
+        }
+    }
+
+    std::cout << "Displaying other algorithm's search path..." << std::endl;
+    graph.graphToPNG(search_path, true, "graph_highlighted");
+    std::cout << "Thank you for using our program!" << std::endl;
 }
 
 void init(Parser& p, AdjList& g, std::unordered_map<std::string, std::vector<std::string>>& games, std::vector<std::string>& keys){
@@ -174,21 +199,13 @@ void init(Parser& p, AdjList& g, std::unordered_map<std::string, std::vector<std
 }
 
 
-
 int main() {
     Parser parser("../resources/games.csv");
     AdjList graph;
+
     std::unordered_map<std::string, std::vector<std::string>> games;
     std::vector<std::string> keys;
+
     init(parser, graph, games, keys);
-    //input game
-    //display graph
-    //select game for similarity
-    //select algorithm
-    //display pathed graph
-    //possibly repeat so the user can select new algo
-    //graph.initialize_graph(game, games[game], games, -1);
-    //graph.graphToPNG(graph.BellmanFord("Conviction", "DOOM Eternal"), true);
-    //std::cout << "bellman took " << graph.get_bellman_time() << " seconds" << std::endl;
     return 0;
 }
