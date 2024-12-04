@@ -219,16 +219,20 @@ std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highl
 
     for(const auto& [from, adjacent] : this->adjlist){ // add all edges to dot file string
         for(const auto& [to, weight] : adjacent){
+            // using https://stackoverflow.com/questions/57882748/how-do-i-remove-trailing-zeros-when-printing-a-floating-point-number
+            std::string weightString = std::to_string(weight);
+            weightString = weightString.substr(0, weightString.find_last_not_of('0') + 1);
+
             dotString.append( "  \"");
             dotString.append(from);
             dotString.append("\" -- \"");
             dotString.append(to);
             dotString.append("\" [label=");
-            dotString.append(std::to_string(weight));
+            dotString.append(weightString);
             dotString.append(" color=\"black\"]\n");
         }
     }
-    // std::cout << "start higlighting" <<std::endl;
+    // std::cout << "start highlighting" <<std::endl;
     if(highlight_shortest_path && !path.empty()){ // if we want the shortest path to be highlighted, color the path red
         for(int i = 0; i < path.size() - 1; i++){
             dotString.append("  \"");
@@ -263,7 +267,7 @@ std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highl
     // using https://en.cppreference.com/w/cpp/utility/program/system
     int result = system("dot -Tpng graph.dot -o graph.png");
     if(result == 0)
-        std::cout << "Graph Successfully created as graph.png" << std::endl;
+        std::cout << "graph.dot successfully created as graph.png" << std::endl;
     else
         std::cerr << "Error translating DOT to PNG" << std::endl;
 
