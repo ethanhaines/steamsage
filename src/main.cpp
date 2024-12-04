@@ -25,8 +25,7 @@ int main() {
     std::string game;
     std::getline(std::cin, game);
     graph.initialize_graph(game, games[game], games, -1);
-    graph.print();
-    std::cout << graph.get_size() << std::endl;
+
 
     return 0;
 }

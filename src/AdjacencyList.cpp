@@ -209,25 +209,70 @@ void AdjList::addEdge(const std::string& from, const std::string& to, float weig
     this->adjlist[to].emplace_back(from, weight); // add reverse edge
 }
 
-void AdjList::graphToPNG(const std::vector<std::string>& path) { // using https://graphviz.org/documentation/
-    std::string dotString = "strict graph { \n"; // start dot file string
+// this website can test return strings
+// https://dreampuf.github.io/GraphvizOnline/?engine=dot#strict%20graph%20%7B%0A%20%20%20%20a%20--%20b%20%5Bcolor%3Dblack%20label%3D100%5D%0A%20%20%20%20b%20--%20c%20%5Bcolor%3Dblack%20label%3D3%5D%0A%20%20%20%20%0A%20%20%20%20a%20--%20b%20%5Bcolor%3Dred%5D%0A%20%20%0A%7D
 
-    for(const auto& [from, adjacent] : this->adjlist){ // add all edges to dot file
+// using https://graphviz.org/documentation/
+std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highlight_shortest_path) { // using https://graphviz.org/documentation/
+    // start dot file string
+    // std::cout << "start trying" << std::endl;
+    std::string dotString = "strict graph { \n"; // "strict" graph makes it so undirected edges cant be added twice
+
+    for(const auto& [from, adjacent] : this->adjlist){ // add all edges to dot file string
         for(const auto& [to, weight] : adjacent){
-            dotString.append( "  ");
+            // using https://stackoverflow.com/questions/57882748/how-do-i-remove-trailing-zeros-when-printing-a-floating-point-number
+            std::string weightString = std::to_string(weight);
+            weightString = weightString.substr(0, weightString.find_last_not_of('0') + 1);
+
+            dotString.append( "  \"");
             dotString.append(from);
-            dotString.append(" -- ");
+            dotString.append("\" -- \"");
             dotString.append(to);
-            dotString.append(" [label=");
-            dotString.append(std::to_string(weight));
-            dotString.append(" color=\"black\"]");
+            dotString.append("\" [label=");
+            dotString.append(weightString);
+            dotString.append(" color=\"black\"]\n");
+        }
+    }
+    // std::cout << "start highlighting" <<std::endl;
+    if(highlight_shortest_path && !path.empty()){ // if we want the shortest path to be highlighted, color the path red
+        for(int i = 0; i < path.size() - 1; i++){
+            dotString.append("  \"");
+            dotString.append(path[i]);
+            dotString.append("\" -- \"");
+            dotString.append(path[i + 1]);
+            dotString.append("\" [color=red]\n");
         }
     }
 
-    // color the path of shortest vertex
+    dotString.append("}\n"); // end dot file
+    // std::cout << "finish dot file" << std::endl;
 
-    dotString.append("}");
+    // create and write dot file
+    //using https://cplusplus.com/reference/fstream/fstream/?kw=fstream
+    std::ofstream dotFile("graph.dot"); // for now just using graph.dot for simplicity
+    if(dotFile.is_open()){
+        dotFile << dotString;
+        dotFile.close();
+        std::cout << "File " << "graph.dot" << " created:";
+        if(highlight_shortest_path)
+            std::cout << " highlighted" << std::endl;
+        else
+            std::cout << " NOT highlighted" << std::endl;
 
+    }else{
+        std::cerr << "Error opening DOT file to write" << std::endl;
+        return "";
+    }
+
+    // using https://stackoverflow.com/questions/1494492/graphviz-how-to-go-from-dot-to-a-graph
+    // using https://en.cppreference.com/w/cpp/utility/program/system
+    int result = system("dot -Tpng graph.dot -o graph.png");
+    if(result == 0)
+        std::cout << "graph.dot successfully created as graph.png" << std::endl;
+    else
+        std::cerr << "Error translating DOT to PNG" << std::endl;
+
+    return dotString;
 }
 
 std::vector<std::string> AdjList::BellmanFord(const std::string& source, const std::string& end) { // using slides 29-41 from module 11's discussion google doc
@@ -263,7 +308,7 @@ std::vector<std::string> AdjList::BellmanFord(const std::string& source, const s
     for(const auto& [from, neighbors] : this->adjlist){
         for(const auto& [to, weight] : neighbors){
             if(distance_map[from] + weight < distance_map[to]){
-                std::cout << "Error: Graph contains a negative-weight cycle (From Bellman-Ford method)" << std::endl;
+                std::cerr << "Error: Graph contains a negative-weight cycle (From Bellman-Ford method)" << std::endl;
                 return {};
             }
         }

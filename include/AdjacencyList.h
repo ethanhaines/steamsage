@@ -5,12 +5,14 @@
 #endif //ADJACENCYMATRIX_H
 
 #include <iostream>
+#include <fstream> // for file writing
 #include <list>
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
 #include <utility>
 #include <limits> // for infinity
+// #include <graphviz/gvc.h> // for graphviz LOOK AT "CMakeLists.txt" for instructions
 
 class AdjList { // I got most of the logic from my pagerank project
 public:
@@ -21,7 +23,7 @@ public:
     int get_size();
     void initialize_graph(std::string game, std::vector<std::string> tags, std::unordered_map<std::string, std::vector<std::string>>& games, int match_requirement);
     void addEdge(const std::string& from, const std::string& to, float weight); // debug algorithms
-    void graphToPNG(const std::vector<std::string>& path);
+    std::string graphToPNG(const std::vector<std::string>& path, bool highlight_shortest_path);
 
 
 private:
