@@ -71,9 +71,10 @@ void input(std::unordered_map<std::string, std::vector<std::string>>& games, std
 
     std::vector<std::string> dijsktras_path;
     std::vector<std::string> bellman_path;
+    std::string possible_game;
 
     if (games.find(game) == games.end()) {
-
+        possible_game = find_most_similar(keys, game);
         std::cout << "Did you mean: " << find_most_similar(keys, game) << std::endl;
         std::cout << "Enter Y if this is the game you want, enter anything else to re-input game." << std::endl;
 
@@ -85,9 +86,12 @@ void input(std::unordered_map<std::string, std::vector<std::string>>& games, std
             return;
         }
     }
-    graph.initialize_graph(game, games[game], games, -1);
+    else {
+        possible_game = game;
+    }
+    graph.initialize_graph(possible_game, games[possible_game], games, -1);
+    graph.graphToPNG({},false);
     //graph should be displayed here
-    graph.graphToPNG({}, false);
     std::cout << "Choose a game from the graph that you would like to find similar games for: " << std::endl;
     std::string game2;
     std::getline(std::cin, game2);
