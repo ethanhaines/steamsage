@@ -9,7 +9,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-// #include <graphviz/gvc.h>
+#include <SFML/Graphics.hpp>  // Include SFML Graphics
 
 // I wanted to find a way for the user to be able to see if they made a typo or if the game they wanted didn't exist in our csv
 // So i found something called levenshtein distance for finding string similarity, and i found a stack overflow and
@@ -67,7 +67,7 @@ std::string find_most_similar(const std::vector<std::string>& keys, const std::s
 
 std::string get_game(std::string possible_game,  std::vector<std::string>& keys, std::unordered_map<std::string, std::vector<std::string>>& games){
     while(true){
-        if (games.find(possible_game) == games.end()) {
+        if (games.find(possible_game) == games.end()) { // loop until you find the game you want then return
             possible_game = find_most_similar(keys, possible_game);
             std::cout << "Did you mean: " << possible_game << std::endl;
             std::cout << "Enter Y or y if this is the game you want, enter anything else to re-input game." << std::endl;
@@ -92,14 +92,13 @@ void input(std::unordered_map<std::string, std::vector<std::string>>& games, std
     std::cout << "Enter a game you like: " << std::endl;
     std::string possible_game;
     std::getline(std::cin, possible_game);
-
     std::string game = get_game(possible_game, keys, games);
 
     graph.initialize_graph(game, games[game], games, -1);
     graph.graphToPNG({},false, "graph_not_highlighted");
-
-
     // TODO: graph should be displayed here
+
+
     std::vector<std::string> search_path;
     // TODO: fix this next prompt its unclear
     std::cout << "Choose a game from the graph that you would like to find similar games for: " << std::endl;
@@ -133,6 +132,7 @@ void init(Parser& p, AdjList& g, std::unordered_map<std::string, std::vector<std
 }
 
 int main() {
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Window");
 
     Parser parser("../resources/games.csv");
     AdjList graph;
