@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <fstream> // for file writing
+#include <chrono>
 #include <list>
 #include <vector>
 #include <unordered_map>
@@ -24,7 +25,8 @@ public:
     void initialize_graph(std::string game, std::vector<std::string> tags, std::unordered_map<std::string, std::vector<std::string>>& games, int match_requirement);
     void addEdge(const std::string& from, const std::string& to, float weight); // debug algorithms
     std::string graphToPNG(const std::vector<std::string>& path, bool highlight_shortest_path);
-
+    float get_dijsktras_time();
+    float get_bellman_time();
 
 private:
     void calculate_weights(const std::string& from, const std::string& to, const std::vector<std::string>& from_tags, const std::vector<std::string>& to_tags);
@@ -32,6 +34,8 @@ private:
     std::unordered_map<std::string, std::unordered_set<std::string>> tags;
     std::unordered_map<std::string, int> tag_count;
     std::unordered_set<std::string> visited;
+    float bellman_time;
+    float dijsktras_time;
     int size = 0;
 };
 

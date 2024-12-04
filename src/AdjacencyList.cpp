@@ -156,6 +156,7 @@ int AdjList::get_size() {
 }
 
 std::vector<std::string> AdjList::Dijsktras(const std::string& start, const std::string& destination) {
+    auto start_time = std::chrono::steady_clock::now();
     std::unordered_map<std::string, float> distance;
     std::unordered_set<std::string> visited;
     std::unordered_map<std::string, std::string> previous;
@@ -199,7 +200,8 @@ std::vector<std::string> AdjList::Dijsktras(const std::string& start, const std:
     reverse(path.begin(), path.end());
 
     if (path.front() != start) return {};
-
+    auto end_time = std::chrono::steady_clock::now();
+    dijsktras_time = std::chrono::duration<float>(end_time - start_time).count();
     return path;
 }
 
@@ -276,6 +278,7 @@ std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highl
 }
 
 std::vector<std::string> AdjList::BellmanFord(const std::string& source, const std::string& end) { // using slides 29-41 from module 11's discussion google doc
+    auto start_time = std::chrono::steady_clock::now();
     if(source == end){
         return {};
     }
@@ -330,13 +333,18 @@ std::vector<std::string> AdjList::BellmanFord(const std::string& source, const s
 
     // source_to_end_path.push_back(current); // add source game
     std::reverse(source_to_end_path.begin(), source_to_end_path.end()); // reverse list
-
+    auto end_time = std::chrono::steady_clock::now();
+    bellman_time = std::chrono::duration<float>(end_time - start_time).count();
     return source_to_end_path;
 }
 
+float AdjList::get_dijsktras_time() {
+    return dijsktras_time;
+}
 
-
-
+float AdjList::get_bellman_time() {
+    return bellman_time;
+}
 
 
 void testGraphAlgorithms(){ // put this at the bottom it's just for testing, but it's a lot of lines of code
