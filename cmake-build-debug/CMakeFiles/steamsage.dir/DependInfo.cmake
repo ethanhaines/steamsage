@@ -10,7 +10,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/src/AdjacencyList.cpp" "CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.obj" "gcc" "CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.obj.d"
   "C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/src/Parser.cpp" "CMakeFiles/steamsage.dir/src/Parser.cpp.obj" "gcc" "CMakeFiles/steamsage.dir/src/Parser.cpp.obj.d"
-  "C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/src/main.cpp" "CMakeFiles/steamsage.dir/src/main.cpp.obj" "gcc" "CMakeFiles/steamsage.dir/src/main.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

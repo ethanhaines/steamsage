@@ -3,14 +3,23 @@
 //
 
 #include <iostream>
-#include <../include/Parser.h>
-#include "../include/AdjacencyList.h"
+#include "Parser.h"
+#include "AdjacencyList.h"
 #include <unordered_map>
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <SFML/Graphics.hpp>  // Include SFML Graphics
-//test
+#include <SFML/Window.hpp>
+
+/*
+ * SFML sources used:
+ * git repository    https://github.com/SFML/SFML
+ * example code      https://github.com/SFML/cmake-sfml-project/blob/master/CMakeLists.txt
+ * cmake tutorial    https://www.youtube.com/watch?v=R3x2OvsUHOU
+ * */
+
+
 // I wanted to find a way for the user to be able to see if they made a typo or if the game they wanted didn't exist in our csv
 // So i found something called levenshtein distance for finding string similarity, and i found a stack overflow and
 // used the logic that was originally in java to create these functions
@@ -88,6 +97,37 @@ std::string get_game(std::string possible_game,  std::vector<std::string>& keys,
     }
 }
 
+void displayPNG(std::string filename){ // using https://stackoverflow.com/questions/24358968/loading-a-texture-in-sfml
+
+    sf::Texture pngTexture;
+    if(!pngTexture.loadFromFile(filename + ".png")){
+        std::cerr << "Error: Loading SFML PNG" << std::endl;
+        return;
+    }
+
+    sf::Vector2u pngSize = pngTexture.getSize();
+    auto width = pngSize.x;
+    auto height = pngSize.y;
+
+    sf::Sprite pngSprite;
+    pngSprite.setTexture(pngTexture);
+
+
+    sf::RenderWindow window(sf::VideoMode(width, height), "Display Graph");
+
+    while (window.isOpen()){
+        sf::Event event;
+        while(window.pollEvent(event)){
+            if(event.type == sf::Event::Closed)
+                window.close();
+
+            window.clear(sf::Color(255, 255, 255));
+            window.draw(pngSprite);
+            window.display();
+        }
+    }
+}
+
 void input(std::unordered_map<std::string, std::vector<std::string>>& games, std::vector<std::string>& keys, AdjList& graph){
     std::cout << "Enter a game you like: " << std::endl;
     std::string possible_game;
@@ -97,7 +137,8 @@ void input(std::unordered_map<std::string, std::vector<std::string>>& games, std
     std::cout << "Loading graph (takes ~30 seconds)..." << std::endl;
     graph.initialize_graph(game, games[game], games, -1);
     std::cout << "Displaying graph..." << std::endl;
-    graph.graphToPNG({},false, "graph_not_highlighted"); // display graph without any algorithm's path
+    graph.graphToPNG({},false, "graph_not_highlighted");
+
     bool bellman = false;
 
     std::vector<std::string> search_path;
@@ -157,9 +198,8 @@ void init(Parser& p, AdjList& g, std::unordered_map<std::string, std::vector<std
     input(games, keys, g);
 }
 
-int main() {
-    //sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Window");
 
+int main() {
     Parser parser("../resources/games.csv");
     AdjList graph;
 

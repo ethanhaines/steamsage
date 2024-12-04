@@ -68,26 +68,11 @@ include CMakeFiles/steamsage.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/steamsage.dir/flags.make
 
-CMakeFiles/steamsage.dir/src/main.cpp.obj: CMakeFiles/steamsage.dir/flags.make
-CMakeFiles/steamsage.dir/src/main.cpp.obj: CMakeFiles/steamsage.dir/includes_CXX.rsp
-CMakeFiles/steamsage.dir/src/main.cpp.obj: C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/src/main.cpp
-CMakeFiles/steamsage.dir/src/main.cpp.obj: CMakeFiles/steamsage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/steamsage.dir/src/main.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/steamsage.dir/src/main.cpp.obj -MF CMakeFiles\steamsage.dir\src\main.cpp.obj.d -o CMakeFiles\steamsage.dir\src\main.cpp.obj -c C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\src\main.cpp
-
-CMakeFiles/steamsage.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/steamsage.dir/src/main.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\src\main.cpp > CMakeFiles\steamsage.dir\src\main.cpp.i
-
-CMakeFiles/steamsage.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/steamsage.dir/src/main.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\src\main.cpp -o CMakeFiles\steamsage.dir\src\main.cpp.s
-
 CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.obj: CMakeFiles/steamsage.dir/flags.make
 CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.obj: CMakeFiles/steamsage.dir/includes_CXX.rsp
 CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.obj: C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/src/AdjacencyList.cpp
 CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.obj: CMakeFiles/steamsage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.obj -MF CMakeFiles\steamsage.dir\src\AdjacencyList.cpp.obj.d -o CMakeFiles\steamsage.dir\src\AdjacencyList.cpp.obj -c C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\src\AdjacencyList.cpp
 
 CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.i: cmake_force
@@ -102,7 +87,7 @@ CMakeFiles/steamsage.dir/src/Parser.cpp.obj: CMakeFiles/steamsage.dir/flags.make
 CMakeFiles/steamsage.dir/src/Parser.cpp.obj: CMakeFiles/steamsage.dir/includes_CXX.rsp
 CMakeFiles/steamsage.dir/src/Parser.cpp.obj: C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/src/Parser.cpp
 CMakeFiles/steamsage.dir/src/Parser.cpp.obj: CMakeFiles/steamsage.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/steamsage.dir/src/Parser.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/steamsage.dir/src/Parser.cpp.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.3\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/steamsage.dir/src/Parser.cpp.obj -MF CMakeFiles\steamsage.dir\src\Parser.cpp.obj.d -o CMakeFiles\steamsage.dir\src\Parser.cpp.obj -c C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\src\Parser.cpp
 
 CMakeFiles/steamsage.dir/src/Parser.cpp.i: cmake_force
@@ -115,14 +100,12 @@ CMakeFiles/steamsage.dir/src/Parser.cpp.s: cmake_force
 
 # Object files for target steamsage
 steamsage_OBJECTS = \
-"CMakeFiles/steamsage.dir/src/main.cpp.obj" \
 "CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.obj" \
 "CMakeFiles/steamsage.dir/src/Parser.cpp.obj"
 
 # External object files for target steamsage
 steamsage_EXTERNAL_OBJECTS =
 
-steamsage.exe: CMakeFiles/steamsage.dir/src/main.cpp.obj
 steamsage.exe: CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.obj
 steamsage.exe: CMakeFiles/steamsage.dir/src/Parser.cpp.obj
 steamsage.exe: CMakeFiles/steamsage.dir/build.make
@@ -133,7 +116,7 @@ steamsage.exe: _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a
 steamsage.exe: CMakeFiles/steamsage.dir/linkLibs.rsp
 steamsage.exe: CMakeFiles/steamsage.dir/objects1.rsp
 steamsage.exe: CMakeFiles/steamsage.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable steamsage.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable steamsage.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\steamsage.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

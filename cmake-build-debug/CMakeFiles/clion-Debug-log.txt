@@ -1,4 +1,4 @@
 "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage -B C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug
--- Configuring done (14.8s)
--- Generating done (0.2s)
+-- Configuring done (15.5s)
+-- Generating done (0.1s)
 -- Build files have been written to: C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug

@@ -219,12 +219,12 @@ CMakeFiles/steamsage.dir/all: _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-w
 CMakeFiles/steamsage.dir/all: _deps/sfml-build/src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\steamsage.dir\build.make CMakeFiles/steamsage.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\steamsage.dir\build.make CMakeFiles/steamsage.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles --progress-num=97,98,99,100 "Built target steamsage"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles --progress-num=98,99,100 "Built target steamsage"
 .PHONY : CMakeFiles/steamsage.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/steamsage.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles 70
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles 69
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/steamsage.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/steamsage.dir/rule
@@ -245,7 +245,7 @@ CMakeFiles/steamsage.dir/clean:
 _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all:
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\build.make _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\System\CMakeFiles\sfml-system.dir\build.make _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles --progress-num=58,59,60,61,62,63,64,65,66,67,68,69,70,71,72 "Built target sfml-system"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles --progress-num=59,60,61,62,63,64,65,66,67,68,69,70,71,72,73 "Built target sfml-system"
 .PHONY : _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all
 
 # Build rule for subdir invocation for target.
@@ -297,7 +297,7 @@ _deps/sfml-build/src/SFML/Main/CMakeFiles/sfml-main.dir/clean:
 _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/all: _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\build.make _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Window\CMakeFiles\sfml-window.dir\build.make _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles --progress-num=73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96 "Built target sfml-window"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles --progress-num=74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97 "Built target sfml-window"
 .PHONY : _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/all
 
 # Build rule for subdir invocation for target.
@@ -323,12 +323,12 @@ _deps/sfml-build/src/SFML/Window/CMakeFiles/sfml-window.dir/clean:
 _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/all: _deps/sfml-build/src/SFML/System/CMakeFiles/sfml-system.dir/all
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\build.make _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/depend
 	$(MAKE) $(MAKESILENT) -f _deps\sfml-build\src\SFML\Network\CMakeFiles\sfml-network.dir\build.make _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles --progress-num=49,50,51,52,53,54,55,56,57 "Built target sfml-network"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles --progress-num=49,50,51,52,53,54,55,56,57,58 "Built target sfml-network"
 .PHONY : _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/all
 
 # Build rule for subdir invocation for target.
 _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles 24
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles 0
 .PHONY : _deps/sfml-build/src/SFML/Network/CMakeFiles/sfml-network.dir/rule

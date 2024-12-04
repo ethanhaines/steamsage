@@ -3,8 +3,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.obj.d"
   "CMakeFiles/steamsage.dir/src/Parser.cpp.obj"
   "CMakeFiles/steamsage.dir/src/Parser.cpp.obj.d"
-  "CMakeFiles/steamsage.dir/src/main.cpp.obj"
-  "CMakeFiles/steamsage.dir/src/main.cpp.obj.d"
   "libsteamsage.dll.a"
   "steamsage.exe"
   "steamsage.exe.manifest"
