@@ -217,8 +217,8 @@ void AdjList::addEdge(const std::string& from, const std::string& to, float weig
 // using https://graphviz.org/documentation/
 std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highlight_shortest_path, const std::string& filename) { // using https://graphviz.org/documentation/
     // start dot file string
-    // std::cout << "start trying" << std::endl;
-    std::string dotString = "strict graph { \n"; // "strict" graph makes it so undirected edges cant be added twice
+    std::string dotString = "strict graph { \n"// "strict" graph makes it so undirected edges cant be added twice
+                            "  ratio=fill\n"; // TODO: this line makes it so graphs are readable but weird sizes
 
     for(const auto& [from, adjacent] : this->adjlist){ // add all edges to dot file string
         for(const auto& [to, weight] : adjacent){
