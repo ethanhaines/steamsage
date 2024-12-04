@@ -24,7 +24,7 @@ public:
     int get_size();
     void initialize_graph(std::string game, std::vector<std::string> tags, std::unordered_map<std::string, std::vector<std::string>>& games, int match_requirement);
     void addEdge(const std::string& from, const std::string& to, float weight); // debug algorithms
-    std::string graphToPNG(const std::vector<std::string>& path, bool highlight_shortest_path);
+    std::string graphToPNG(const std::vector<std::string>& path, bool highlight_shortest_path, const std::string& filename);
     float get_dijsktras_time();
     float get_bellman_time();
 

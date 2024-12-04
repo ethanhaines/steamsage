@@ -215,7 +215,7 @@ void AdjList::addEdge(const std::string& from, const std::string& to, float weig
 // https://dreampuf.github.io/GraphvizOnline/?engine=dot#strict%20graph%20%7B%0A%20%20%20%20a%20--%20b%20%5Bcolor%3Dblack%20label%3D100%5D%0A%20%20%20%20b%20--%20c%20%5Bcolor%3Dblack%20label%3D3%5D%0A%20%20%20%20%0A%20%20%20%20a%20--%20b%20%5Bcolor%3Dred%5D%0A%20%20%0A%7D
 
 // using https://graphviz.org/documentation/
-std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highlight_shortest_path) { // using https://graphviz.org/documentation/
+std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highlight_shortest_path, const std::string& filename) { // using https://graphviz.org/documentation/
     // start dot file string
     // std::cout << "start trying" << std::endl;
     std::string dotString = "strict graph { \n"; // "strict" graph makes it so undirected edges cant be added twice
@@ -251,11 +251,11 @@ std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highl
 
     // create and write dot file
     //using https://cplusplus.com/reference/fstream/fstream/?kw=fstream
-    std::ofstream dotFile("graph.dot"); // for now just using graph.dot for simplicity
+    std::ofstream dotFile(filename + ".dot"); // for now just using graph.dot for simplicity
     if(dotFile.is_open()){
         dotFile << dotString;
         dotFile.close();
-        std::cout << "File " << "graph.dot" << " created:";
+        std::cout << "File " << filename + ".dot" << " created:";
         if(highlight_shortest_path)
             std::cout << " highlighted" << std::endl;
         else
@@ -266,14 +266,16 @@ std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highl
         return "";
     }
 
+
     // below code tured dot file to png using graphviz command line but does not work unless installed
     // using https://stackoverflow.com/questions/1494492/graphviz-how-to-go-from-dot-to-a-graph
     // using https://en.cppreference.com/w/cpp/utility/program/system
-    //    int result = system("dot -Tpng graph.dot -o graph.png");
-    //    if(result == 0)
-    //        std::cout << "graph.dot successfully created as graph.png" << std::endl;
-    //    else
-    //        std::cerr << "Error translating DOT to PNG" << std::endl;
+    std::string system_command = "dot -Tpng " + filename +".dot -o "+ filename+".png";
+    int result = system(system_command.c_str());
+    if(result == 0)
+       std::cout << filename + ".dot successfully created as " + filename + ".png" << std::endl;
+    else
+    std::cerr << "Error translating DOT to PNG" << std::endl;
 
     return dotString;
 }

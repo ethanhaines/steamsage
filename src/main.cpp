@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <SFML/Graphics.hpp>  // Include SFML Graphics
 
 // I wanted to find a way for the user to be able to see if they made a typo or if the game they wanted didn't exist in our csv
 // So i found something called levenshtein distance for finding string similarity, and i found a stack overflow and
@@ -49,11 +50,11 @@ int levenshtein_distance(const std::string& s1, const std::string& s2) {
 }
 
 
-std::string find_most_similar(const std::vector<std::string>& strings, const std::string& input) { // takes in all keys and compares them to user input
+std::string find_most_similar(const std::vector<std::string>& keys, const std::string& input) { // takes in all keys and compares them to user input
     int min_distance = std::numeric_limits<int>::max();
     std::string most_similar;
 
-    for (const auto& str : strings) {
+    for (const auto& str : keys) {
         int distance = levenshtein_distance(input, str);
         if (distance < min_distance) {
             min_distance = distance;
@@ -64,53 +65,66 @@ std::string find_most_similar(const std::vector<std::string>& strings, const std
     return most_similar;
 }
 
-void input(std::unordered_map<std::string, std::vector<std::string>>& games, std::vector<std::string>& keys, AdjList& graph){
-    std::cout << "Enter a game you like: " << std::endl;
-    std::string game;
-    std::getline(std::cin, game);
+std::string get_game(std::string possible_game,  std::vector<std::string>& keys, std::unordered_map<std::string, std::vector<std::string>>& games){
+    while(true){
+        if (games.find(possible_game) == games.end()) { // loop until you find the game you want then return
+            possible_game = find_most_similar(keys, possible_game);
+            std::cout << "Did you mean: " << possible_game << std::endl;
+            std::cout << "Enter Y or y if this is the game you want, enter anything else to re-input game." << std::endl;
 
-    std::vector<std::string> dijsktras_path;
-    std::vector<std::string> bellman_path;
-    std::string possible_game;
+            std::string user_input;
+            std::getline(std::cin, user_input);
 
-    if (games.find(game) == games.end()) {
-        possible_game = find_most_similar(keys, game);
-        std::cout << "Did you mean: " << find_most_similar(keys, game) << std::endl;
-        std::cout << "Enter Y if this is the game you want, enter anything else to re-input game." << std::endl;
-
-        std::string user_input;
-        std::cin >> user_input;
-
-        if (user_input != "Y"){
-            input(games, keys, graph);
-            return;
+            if (user_input == "Y" || user_input == "y") {
+                return possible_game;
+            }else{
+                std::cout << "Re-enter game: " << std::endl;
+                std::getline(std::cin, possible_game);
+            }
+        }else{
+            return possible_game;
         }
     }
-    else {
-        possible_game = game;
-    }
-    graph.initialize_graph(possible_game, games[possible_game], games, -1);
-    graph.graphToPNG({},false);
-    //graph should be displayed here
+}
+
+void input(std::unordered_map<std::string, std::vector<std::string>>& games, std::vector<std::string>& keys, AdjList& graph){
+    // TODO: somehow loop
+    std::cout << "Enter a game you like: " << std::endl;
+    std::string possible_game;
+    std::getline(std::cin, possible_game);
+    std::string game = get_game(possible_game, keys, games);
+
+    graph.initialize_graph(game, games[game], games, -1);
+    graph.graphToPNG({},false, "graph_not_highlighted");
+    // TODO: graph should be displayed here
+
+
+    std::vector<std::string> search_path;
+    // TODO: fix this next prompt its unclear
     std::cout << "Choose a game from the graph that you would like to find similar games for: " << std::endl;
-    std::string game2;
-    std::getline(std::cin, game2);
+
+    std::string possible_game2;
+    std::getline(std::cin, possible_game2);
+    std::string game2 = get_game(possible_game2, keys, games);
+
     std::cout << "Input 1 to search for this game using Dijsktras, anything else for Bellman-Ford" << std::endl;
     int in;
     std::cin >> in;
     if (in == 1){
-        dijsktras_path = graph.Dijsktras(game, game2);
+        search_path = graph.Dijsktras(game, game2);
     }
     else{
-        bellman_path = graph.BellmanFord(game, game2);
+        search_path = graph.BellmanFord(game, game2);
     }
-    graph.graphToPNG(dijsktras_path, true);
+    graph.graphToPNG(search_path, true, "graph_highlighted");
+
+    // TODO: display the time of the search path and/or both/either/one
 }
 
 void init(Parser& p, AdjList& g, std::unordered_map<std::string, std::vector<std::string>>& games, std::vector<std::string>& keys){
     games = p.parse();
 
-    for (auto i : games){
+    for (const auto& i : games){
         keys.push_back(i.first);
     }
 
@@ -118,6 +132,7 @@ void init(Parser& p, AdjList& g, std::unordered_map<std::string, std::vector<std
 }
 
 int main() {
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Window");
 
     Parser parser("../resources/games.csv");
     AdjList graph;
