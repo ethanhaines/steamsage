@@ -14,7 +14,6 @@
 		"commands" : 
 		[
 			"add_executable",
-			"link_directories",
 			"include_directories"
 		],
 		"files" : 
@@ -29,25 +28,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 14,
+				"line" : 9,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 12,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
 				"line" : 6,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 11,
 				"parent" : 0
 			}
 		]
@@ -64,12 +51,8 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 3,
+					"backtrace" : 2,
 					"path" : "C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/include"
-				},
-				{
-					"backtrace" : 4,
-					"path" : "C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/../libs"
 				}
 			],
 			"language" : "CXX",
@@ -101,11 +84,6 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "-LC:\\Users\\eboyh\\OneDrive\\Documents\\GitHub\\steamsage\\..\\libs",
-				"role" : "libraryPath"
 			},
 			{
 				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",

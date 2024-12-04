@@ -129,7 +129,7 @@ void AdjList::initialize_graph(std::string start_game, std::vector<std::string> 
                 stack.emplace(other_game, other_tags, -1);
 
                 // stop if the graph reaches the size limit
-                if (size >= 100) {
+                if (size >= 50) {
                     return;
                 }
             }
@@ -269,11 +269,11 @@ std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highl
     // below code tured dot file to png using graphviz command line but does not work unless installed
     // using https://stackoverflow.com/questions/1494492/graphviz-how-to-go-from-dot-to-a-graph
     // using https://en.cppreference.com/w/cpp/utility/program/system
-//    int result = system("dot -Tpng graph.dot -o graph.png");
-//    if(result == 0)
-//        std::cout << "graph.dot successfully created as graph.png" << std::endl;
-//    else
-//        std::cerr << "Error translating DOT to PNG" << std::endl;
+    //    int result = system("dot -Tpng graph.dot -o graph.png");
+    //    if(result == 0)
+    //        std::cout << "graph.dot successfully created as graph.png" << std::endl;
+    //    else
+    //        std::cerr << "Error translating DOT to PNG" << std::endl;
 
     return dotString;
 }
