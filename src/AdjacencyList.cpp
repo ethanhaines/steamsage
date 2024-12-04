@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <stack>
 #include <utility>
+// I got most of the base logic from my pagerank algorithm for the adjacency list
 void AdjList::insert(const std::string& from, const std::string& to, const std::vector<std::string>& from_tags, const std::vector<std::string>& to_tags) {
     for (auto& edge : adjlist[from]){ // skip already inserted games
         if (edge.first == to){
