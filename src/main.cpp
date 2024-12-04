@@ -19,6 +19,7 @@
 // https://stackoverflow.com/questions/36472793/levenshtein-distance-algorithm
 // https://stackoverflow.com/questions/31625387/levenshtein-distance-where-i-only-care-about-words
 // https://stackoverflow.com/questions/3183149/most-efficient-way-to-calculate-levenshtein-distance
+// I also used the 12/4 discussion slides logic to help
 int levenshtein_distance(const std::string& s1, const std::string& s2) {
     int m = s1.size();
     int n = s2.size();
@@ -161,17 +162,10 @@ int main() {
 
     Parser parser("../resources/games.csv");
     AdjList graph;
+
     std::unordered_map<std::string, std::vector<std::string>> games;
     std::vector<std::string> keys;
+
     init(parser, graph, games, keys);
-    //input game
-    //display graph
-    //select game for similarity
-    //select algorithm
-    //display pathed graph
-    //possibly repeat so the user can select new algo
-    //graph.initialize_graph(game, games[game], games, -1);
-    //graph.graphToPNG(graph.BellmanFord("Conviction", "DOOM Eternal"), true);
-    //std::cout << "bellman took " << graph.get_bellman_time() << " seconds" << std::endl;
     return 0;
 }
