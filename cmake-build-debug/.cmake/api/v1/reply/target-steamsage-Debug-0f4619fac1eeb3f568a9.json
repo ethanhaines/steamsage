@@ -15,6 +15,7 @@
 		[
 			"add_executable",
 			"link_directories",
+			"target_link_libraries",
 			"include_directories"
 		],
 		"files" : 
@@ -29,7 +30,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 14,
+				"line" : 15,
 				"parent" : 0
 			},
 			{
@@ -41,11 +42,17 @@
 			{
 				"command" : 2,
 				"file" : 0,
+				"line" : 32,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
 				"line" : 6,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 3,
 				"file" : 0,
 				"line" : 11,
 				"parent" : 0
@@ -64,12 +71,12 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
 					"path" : "C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/include"
 				},
 				{
-					"backtrace" : 4,
-					"path" : "C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/../libs"
+					"backtrace" : 5,
+					"path" : "C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/GraphViz/include"
 				}
 			],
 			"language" : "CXX",
@@ -104,8 +111,18 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-LC:\\Users\\eboyh\\OneDrive\\Documents\\GitHub\\steamsage\\..\\libs",
+				"fragment" : "-LC:\\Users\\eboyh\\OneDrive\\Documents\\GitHub\\steamsage\\external\\GraphViz\\lib",
 				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lgvc",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lcgraph",
+				"role" : "libraries"
 			},
 			{
 				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",

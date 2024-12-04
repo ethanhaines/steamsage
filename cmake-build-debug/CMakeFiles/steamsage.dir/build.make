@@ -131,6 +131,68 @@ steamsage.exe: CMakeFiles/steamsage.dir/objects1.rsp
 steamsage.exe: CMakeFiles/steamsage.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable steamsage.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\steamsage.dir\link.txt --verbose=$(VERBOSE)
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/ANN.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/brotlicommon.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/brotlidec.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/bz2.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/cairo-2.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/cdt.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/cgraph++.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/cgraph.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/concrt140.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/ffi-8.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/fontconfig-1.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/freetype.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/fribidi-0.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/gdtclft.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/getopt.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/gio-2.0-0.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/glib-2.0-0.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/gmodule-2.0-0.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/gobject-2.0-0.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/gts.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/gvc++.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/gvc.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/gvplugin_core.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/gvplugin_dot_layout.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/gvplugin_gd.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/gvplugin_gdiplus.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/gvplugin_kitty.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/gvplugin_neato_layout.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/gvplugin_pango.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/gvplugin_vt.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/gvplugin_webp.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/harfbuzz.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/iconv-2.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/intl-8.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/jpeg62.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/libexpat.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/libgd.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/liblzma.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/libpng16.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/libsharpyuv.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/libwebp.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/msvcp140.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/msvcp140_1.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/msvcp140_2.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/msvcp140_atomic_wait.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/msvcp140_codecvt_ids.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/pango-1.0-0.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/pangocairo-1.0-0.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/pangoft2-1.0-0.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/pangowin32-1.0-0.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/pathplan.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/pcre2-8.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/pixman-1-0.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/tcl86t.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/tcldot.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/tcldot_builtin.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/tclplan.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/tiff.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/vcruntime140.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/vcruntime140_1.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/xdot.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/external/Graphviz/bin/zlib1.dll C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
 
 # Rule to build all files generated by this target.
 CMakeFiles/steamsage.dir/build: steamsage.exe
