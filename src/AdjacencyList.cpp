@@ -79,12 +79,12 @@ void AdjList::initialize_graph(std::string start_game, std::vector<std::string> 
         auto [game, tags, match_requirement] = stack.top();
         stack.pop();
 
-        // Skip already visited games
+        // skip already visited games
         if (visited.find(game) != visited.end()) {
             continue;
         }
 
-        // Initialize match_requirement for the first call for each game
+        // initialize match_requirement for the first call for each game
         if (match_requirement == -1) {
             match_requirement = tags.size();
         }

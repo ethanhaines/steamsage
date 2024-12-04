@@ -126,6 +126,10 @@ steamsage.exe: CMakeFiles/steamsage.dir/src/main.cpp.obj
 steamsage.exe: CMakeFiles/steamsage.dir/src/AdjacencyList.cpp.obj
 steamsage.exe: CMakeFiles/steamsage.dir/src/Parser.cpp.obj
 steamsage.exe: CMakeFiles/steamsage.dir/build.make
+steamsage.exe: _deps/sfml-build/lib/libsfml-graphics-s-d.a
+steamsage.exe: _deps/sfml-build/lib/libsfml-window-s-d.a
+steamsage.exe: _deps/sfml-build/lib/libsfml-system-s-d.a
+steamsage.exe: _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a
 steamsage.exe: CMakeFiles/steamsage.dir/linkLibs.rsp
 steamsage.exe: CMakeFiles/steamsage.dir/objects1.rsp
 steamsage.exe: CMakeFiles/steamsage.dir/link.txt
