@@ -91,21 +91,21 @@ std::string get_game(std::string possible_game,  std::vector<std::string>& keys,
 void input(std::unordered_map<std::string, std::vector<std::string>>& games, std::vector<std::string>& keys, AdjList& graph){
     std::cout << "Enter a game you like: " << std::endl;
     std::string possible_game;
-    std::getline(std::cin, possible_game);
-    std::string game = get_game(possible_game, keys, games);
+    std::getline(std::cin, possible_game); // get input
+    std::string game = get_game(possible_game, keys, games); // input validation
 
     std::cout << "Loading graph (takes ~30 seconds)..." << std::endl;
     graph.initialize_graph(game, games[game], games, -1);
     std::cout << "Displaying graph..." << std::endl;
-    graph.graphToPNG({},false, "graph_not_highlighted");
+    graph.graphToPNG({},false, "graph_not_highlighted"); // display graph without any algorithm's path
     bool bellman = false;
 
     std::vector<std::string> search_path;
     std::cout << "Choose a game from the graph that you also like, the most similar games between your two inputs will be along the shortest path: " << std::endl;
 
     std::string possible_game2;
-    std::getline(std::cin, possible_game2);
-    std::string game2 = get_game(possible_game2, keys, games);
+    std::getline(std::cin, possible_game2); // get second input
+    std::string game2 = get_game(possible_game2, keys, games); // input validation
 
     std::cout << "Input 1 to search for this game using Dijsktras, anything else for Bellman-Ford" << std::endl;
     int in;
@@ -124,7 +124,7 @@ void input(std::unordered_map<std::string, std::vector<std::string>>& games, std
     }
 
     std::cout << "Displaying chosen algorithm's search path..." << std::endl;
-    graph.graphToPNG(search_path, true, "graph_highlighted");
+    graph.graphToPNG(search_path, true, "graph_highlighted"); // takes string path from algorithms and highlights red on the png
 
     std::string in2;
     std::cout << "Would you like to attempt the search with the other algorithm? Enter Y or y: " << std::endl;
@@ -158,11 +158,9 @@ void init(Parser& p, AdjList& g, std::unordered_map<std::string, std::vector<std
 }
 
 int main() {
-    //sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Window");
-
     Parser parser("../resources/games.csv");
     AdjList graph;
-
+    // initialize our base components
     std::unordered_map<std::string, std::vector<std::string>> games;
     std::vector<std::string> keys;
 

@@ -27,7 +27,7 @@ set_property(GLOBAL PROPERTY _CMAKE_FindGit_GIT_EXECUTABLE_VERSION
 
 include(ExternalProject)
 ExternalProject_Add(sfml-populate
-                     "UPDATE_DISCONNECTED" "False" "GIT_REPOSITORY" "https://github.com/SFML/SFML.git" "EXTERNALPROJECT_INTERNAL_ARGUMENT_SEPARATOR" "GIT_TAG" "2.6.2"
+                     "UPDATE_DISCONNECTED" "False" "GIT_REPOSITORY" "https://github.com/SFML/SFML" "EXTERNALPROJECT_INTERNAL_ARGUMENT_SEPARATOR" "GIT_TAG" "2.6.2"
                     SOURCE_DIR          "C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug/_deps/sfml-src"
                     BINARY_DIR          "C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug/_deps/sfml-build"
                     CONFIGURE_COMMAND   ""

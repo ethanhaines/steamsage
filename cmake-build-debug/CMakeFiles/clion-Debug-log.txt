@@ -1,23 +1,4 @@
 "C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage -B C:\Users\eboyh\OneDrive\Documents\GitHub\steamsage\cmake-build-debug
-[ 11%] Performing update step for 'sfml-populate'
-CMake Error at C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/tmp/sfml-populate-gitupdate.cmake:34 (message):
-  Failed to get the hash for HEAD:
-
-  fatal: not a git repository: '.git'
-
-
-
-mingw32-make[2]: *** [CMakeFiles\sfml-populate.dir\build.make:132: sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update] Error 1
-mingw32-make[1]: *** [CMakeFiles\Makefile2:82: CMakeFiles/sfml-populate.dir/all] Error 2
-mingw32-make: *** [Makefile:90: all] Error 2
-
-CMake Error at C:/Program Files/CMake/share/cmake-3.29/Modules/FetchContent.cmake:1714 (message):
-  Build step for sfml failed: 2
-Call Stack (most recent call first):
-  C:/Program Files/CMake/share/cmake-3.29/Modules/FetchContent.cmake:1854:EVAL:2 (__FetchContent_directPopulate)
-  C:/Program Files/CMake/share/cmake-3.29/Modules/FetchContent.cmake:1854 (cmake_language)
-  C:/Program Files/CMake/share/cmake-3.29/Modules/FetchContent.cmake:2081 (FetchContent_Populate)
-  CMakeLists.txt:16 (FETCHCONTENT_MAKEAVAILABLE)
-
-
--- Configuring incomplete, errors occurred!
+-- Configuring done (14.8s)
+-- Generating done (0.2s)
+-- Build files have been written to: C:/Users/eboyh/OneDrive/Documents/GitHub/steamsage/cmake-build-debug
