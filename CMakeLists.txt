@@ -10,8 +10,10 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 # https://graphviz.org/download/ download by clicking "graphviz-12.2.0 (64-bit) EXE installer [sha256]"
 # how to install https://forum.graphviz.org/t/new-simplified-installation-procedure-on-windows/224
 
-include_directories("../libs")
-link_directories("../libs")
+# MAKE SURE YOU RESTART YOUR IDE
+
+include_directories("../libs/include")
+link_directories("../libs/lib")
 
 add_executable(steamsage
         src/main.cpp

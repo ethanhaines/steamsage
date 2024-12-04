@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+// #include <graphviz/gvc.h>
 
 // I wanted to find a way for the user to be able to see if they made a typo or if the game they wanted didn't exist in our csv
 // So i found something called levenshtein distance for finding string similarity, and i found a stack overflow and
@@ -92,17 +93,21 @@ void input(std::unordered_map<std::string, std::vector<std::string>>& games, std
     std::string possible_game;
     std::getline(std::cin, possible_game);
 
-    std::vector<std::string> search_path;
     std::string game = get_game(possible_game, keys, games);
 
-    // std::cout << "try to initialize graph" << std::endl;
     graph.initialize_graph(game, games[game], games, -1);
-    graph.graphToPNG({},false);
+    graph.graphToPNG({},false, "graph_not_highlighted");
+
+
     // TODO: graph should be displayed here
+    std::vector<std::string> search_path;
+    // TODO: fix this next prompt its unclear
     std::cout << "Choose a game from the graph that you would like to find similar games for: " << std::endl;
+
     std::string possible_game2;
     std::getline(std::cin, possible_game2);
     std::string game2 = get_game(possible_game2, keys, games);
+
     std::cout << "Input 1 to search for this game using Dijsktras, anything else for Bellman-Ford" << std::endl;
     int in;
     std::cin >> in;
@@ -112,7 +117,7 @@ void input(std::unordered_map<std::string, std::vector<std::string>>& games, std
     else{
         search_path = graph.BellmanFord(game, game2);
     }
-    graph.graphToPNG(search_path, true);
+    graph.graphToPNG(search_path, true, "graph_highlighted");
 
     // TODO: display the time of the search path and/or both/either/one
 }
