@@ -208,10 +208,10 @@ void input(std::unordered_map<std::string, std::vector<std::string>>& games, std
             search_path = graph.Dijsktras(game, game2);
             std::cout << "Dijsktras took: " << graph.get_dijsktras_time() << " seconds" << std::endl;
         }
+        std::cout << "Displaying other algorithm's search path..." << std::endl;
+        graph.graphToPNG(search_path, true, "graph_highlighted");
     }
 
-    std::cout << "Displaying other algorithm's search path..." << std::endl;
-    graph.graphToPNG(search_path, true, "graph_highlighted");
     std::cout << "Thank you for using our program!" << std::endl;
 }
 
