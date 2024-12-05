@@ -106,20 +106,45 @@ void displayPNG(std::string filename){ // using https://stackoverflow.com/questi
     }
 
     sf::Vector2u pngSize = pngTexture.getSize();
-    auto width = pngSize.x;
-    auto height = pngSize.y;
 
     sf::Sprite pngSprite;
     pngSprite.setTexture(pngTexture);
 
 
-    sf::RenderWindow window(sf::VideoMode(width, height), "Display Graph");
+    sf::RenderWindow window(sf::VideoMode(1000, 800), "Display Graph");
+    window.requestFocus();
+
+    sf::View view(sf::FloatRect(0.f, 0.f, 1000.f, 1000.f));
+    window.setView(view);
+
+    bool panning = false;
+    sf::Vector2i start_pos;
 
     while (window.isOpen()){
         sf::Event event;
         while(window.pollEvent(event)){
             if(event.type == sf::Event::Closed)
                 window.close();
+
+            if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+                panning = true;
+                start_pos = sf::Mouse::getPosition(window);
+            }
+
+            if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
+                panning = false;
+            }
+
+            if (event.type == sf::Event::MouseMoved && panning) {
+                sf::Vector2i current_pos = sf::Mouse::getPosition(window);
+                sf::Vector2f delta(
+                        static_cast<float>(start_pos.x - current_pos.x),
+                        static_cast<float>(start_pos.y - current_pos.y)
+                );
+                view.move(delta);
+                window.setView(view); // apply the updated view
+                start_pos = current_pos; // update the start position
+            }
 
             window.clear(sf::Color(255, 255, 255));
             window.draw(pngSprite);
@@ -138,6 +163,8 @@ void input(std::unordered_map<std::string, std::vector<std::string>>& games, std
     graph.initialize_graph(game, games[game], games, -1);
     std::cout << "Displaying graph..." << std::endl;
     graph.graphToPNG({},false, "graph_not_highlighted");
+
+    displayPNG("graph_not_highlighted");
 
     bool bellman = false;
 
