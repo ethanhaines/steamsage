@@ -129,7 +129,7 @@ void AdjList::initialize_graph(std::string start_game, std::vector<std::string> 
                 stack.emplace(other_game, other_tags, -1);
 
                 // stop if the graph reaches the size limit
-                if (size >= 50) {
+                if (size >= 75) {
                     return;
                 }
             }
@@ -255,12 +255,6 @@ std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highl
     if(dotFile.is_open()){
         dotFile << dotString;
         dotFile.close();
-        std::cout << "File " << filename + ".dot" << " created:";
-        if(highlight_shortest_path)
-            std::cout << " highlighted" << std::endl;
-        else
-            std::cout << " NOT highlighted" << std::endl;
-
     }else{
         std::cerr << "Error opening DOT file to write" << std::endl;
         return "";
@@ -272,8 +266,7 @@ std::string AdjList::graphToPNG(const std::vector<std::string>& path, bool highl
     // using https://en.cppreference.com/w/cpp/utility/program/system
     std::string system_command = "dot -Tpng " + filename +".dot -o "+ filename+".png";
     int result = system(system_command.c_str());
-    if(result == 0)
-       std::cout << filename + ".dot successfully created as " + filename + ".png" << std::endl;
+    if(result == 0){}
     else
     std::cerr << "Error translating DOT to PNG" << std::endl;
 

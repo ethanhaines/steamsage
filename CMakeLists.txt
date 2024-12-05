@@ -12,7 +12,7 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 # download "Visual C++ 17 (2022) - 64-bit"
 include(FetchContent)
 set(BUILD_SHARED_LIBS OFF)
-FETCHCONTENT_DECLARE(SFML GIT_REPOSITORY https://github.com/SFML/SFML GIT_TAG 2.6.2)
+FETCHCONTENT_DECLARE(SFML GIT_REPOSITORY https://github.com/SFML/SFML.git GIT_TAG 2.6.2)
 FETCHCONTENT_MAKEAVAILABLE(SFML)
 
 # set(SFML_DIR "C:/SFML-2.6.2/lib/cmake/SFML") # CHANGE THIS TO "path/to/your/sfml/lib/cmake/SFML"

@@ -105,7 +105,6 @@ void displayPNG(std::string filename){ // using https://stackoverflow.com/questi
         return;
     }
 
-    sf::Vector2u pngSize = pngTexture.getSize();
 
     sf::Sprite pngSprite;
     pngSprite.setTexture(pngTexture);
@@ -162,6 +161,8 @@ void input(std::unordered_map<std::string, std::vector<std::string>>& games, std
     std::cout << "Loading graph (takes ~30 seconds)..." << std::endl;
     graph.initialize_graph(game, games[game], games, -1);
     std::cout << "Displaying graph..." << std::endl;
+    std::cout << "Choose a game from the graph, the most similar games between your two inputs will be along the shortest path: " << std::endl;
+    std::cout << "When you have chosen a game, close the window and input your game: " << std::endl;
     graph.graphToPNG({},false, "graph_not_highlighted");
 
     displayPNG("graph_not_highlighted");
@@ -169,17 +170,18 @@ void input(std::unordered_map<std::string, std::vector<std::string>>& games, std
     bool bellman = false;
 
     std::vector<std::string> search_path;
-    std::cout << "Choose a game from the graph that you also like, the most similar games between your two inputs will be along the shortest path: " << std::endl;
 
     std::string possible_game2;
+
     std::getline(std::cin, possible_game2);
     std::string game2 = get_game(possible_game2, keys, games);
 
     std::cout << "Input 1 to search for this game using Dijsktras, anything else for Bellman-Ford" << std::endl;
-    int in;
-    std::cin >> in;
+    std::string in;
 
-    if (in == 1){
+    std::getline(std::cin, in);
+
+    if (in == "1"){
         search_path = graph.Dijsktras(game, game2);
         std::cout << "Dijsktras took: " << graph.get_dijsktras_time() << " seconds" << std::endl;
         bellman = false;
@@ -193,10 +195,11 @@ void input(std::unordered_map<std::string, std::vector<std::string>>& games, std
 
     std::cout << "Displaying chosen algorithm's search path..." << std::endl;
     graph.graphToPNG(search_path, true, "graph_highlighted");
+    displayPNG("graph_highlighted");
 
     std::string in2;
     std::cout << "Would you like to attempt the search with the other algorithm? Enter Y or y: " << std::endl;
-    std::cin >> in2;
+    std::getline(std::cin, in2);
 
     if (in2 == "Y" || in2 == "y"){
         if (!bellman){
@@ -208,10 +211,11 @@ void input(std::unordered_map<std::string, std::vector<std::string>>& games, std
             search_path = graph.Dijsktras(game, game2);
             std::cout << "Dijsktras took: " << graph.get_dijsktras_time() << " seconds" << std::endl;
         }
+        std::cout << "Displaying other algorithm's search path..." << std::endl;
+        graph.graphToPNG(search_path, true, "graph_highlighted");
+        displayPNG("graph_highlighted");
     }
 
-    std::cout << "Displaying other algorithm's search path..." << std::endl;
-    graph.graphToPNG(search_path, true, "graph_highlighted");
     std::cout << "Thank you for using our program!" << std::endl;
 }
 

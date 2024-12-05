@@ -212,7 +212,7 @@
 				{
 					"directoryIndex" : 7,
 					"id" : "sfml-graphics::@98af38147d5fa7e70f61",
-					"jsonFile" : "target-sfml-graphics-Debug-b5c3a7c03e2d76371b7d.json",
+					"jsonFile" : "target-sfml-graphics-Debug-6ba231a803d376e7a43d.json",
 					"name" : "sfml-graphics",
 					"projectIndex" : 1
 				},
@@ -247,7 +247,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "steamsage::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-steamsage-Debug-0bd51032443067523d8b.json",
+					"jsonFile" : "target-steamsage-Debug-1b8a9ef11fd3aeada43e.json",
 					"name" : "steamsage",
 					"projectIndex" : 0
 				}
